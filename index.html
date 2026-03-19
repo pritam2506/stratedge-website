@@ -506,10 +506,11 @@
                         Ready to elevate your architectural or construction brand? Our strategy team is ready to schedule your consultation.
                     </p>
                     <div class="space-y-6 mb-12">
-                        <div class="flex items-center text-slate-700">
-                            <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0"><i class="fas fa-envelope"></i></div>
-                            <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-orange-500 transition">info.stratedgecommunications@gmail.com</a>
-                        </div>
+                        <!-- Entire row is now clickable for a better mobile/desktop experience -->
+                        <a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit" rel="noopener noreferrer">
+                            <div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0 transition-colors"><i class="fas fa-envelope"></i></div>
+                            <span class="font-medium underline decoration-orange-500/0 hover:decoration-orange-500/100">info.stratedgecommunications@gmail.com</span>
+                        </a>
                         <div class="flex items-center text-slate-700">
                             <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0"><i class="fas fa-phone-alt"></i></div>
                             <span class="font-medium">+91-9123872596</span>
@@ -638,7 +639,8 @@
                     <div class="lg:col-span-2">
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Connect</h4>
                         <div class="space-y-3 text-xs text-slate-300">
-                            <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition whitespace-nowrap block">info.stratedgecommunications@gmail.com</a>
+                            <!-- Clickable Link in Footer -->
+                            <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition whitespace-nowrap block" rel="noopener noreferrer">info.stratedgecommunications@gmail.com</a>
                             <p class="font-medium hover:text-amber-400 transition cursor-pointer">+91-9123872596</p>
                             <p class="opacity-60">Kolkata HQ | PAN-India</p>
                         </div>
