@@ -805,11 +805,17 @@
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Initialize Firebase Backend
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const firebaseConfig = {
+            apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
+            authDomain: "stratedge-website.firebaseapp.com",
+            projectId: "stratedge-website",
+            storageBucket: "stratedge-website.firebasestorage.app",
+            messagingSenderId: "123456789",
+            appId: "1:123456789:web:abcdef"
+        };
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         
         let currentUser = null;
 
@@ -863,7 +869,7 @@
 
             try {
                 // Send to Firestore Leads Collection
-                const leadsRef = collection(db, 'artifacts', appId, 'public', 'data', 'leads');
+                const leadsRef = collection(db, 'leads');
                 await addDoc(leadsRef, formData);
                 
                 // Reset form and show success
