@@ -506,7 +506,6 @@
                         Ready to elevate your architectural or construction brand? Our strategy team is ready to schedule your consultation.
                     </p>
                     <div class="space-y-6 mb-12">
-                        <!-- Entire row is now clickable for a better mobile/desktop experience -->
                         <a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit" rel="noopener noreferrer">
                             <div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0 transition-colors"><i class="fas fa-envelope"></i></div>
                             <span class="font-medium underline decoration-orange-500/0 hover:decoration-orange-500/100">info.stratedgecommunications@gmail.com</span>
@@ -517,7 +516,6 @@
                         </div>
                     </div>
                     
-                    <!-- Visual Social Connect Row -->
                     <div class="pt-8 border-t border-slate-100">
                         <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 mb-5">Connect with us</p>
                         <div class="flex space-x-4">
@@ -608,10 +606,8 @@
         </div>
     </section>
 
-    <!-- Official Compliance & Final Footer -->
     <footer id="contact" class="bg-blue-950 py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <!-- Info and Logo Row -->
             <div class="flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12">
                 <div class="max-w-sm lg:max-w-xs shrink-0 w-full">
                     <div class="flex items-center space-x-3 mb-6">
@@ -641,7 +637,6 @@
                     <div class="lg:col-span-2">
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Connect</h4>
                         <div class="space-y-3 text-xs text-slate-300">
-                            <!-- Clickable Link in Footer -->
                             <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition whitespace-nowrap block" rel="noopener noreferrer">info.stratedgecommunications@gmail.com</a>
                             <p class="font-medium hover:text-amber-400 transition cursor-pointer">+91-9123872596</p>
                             <p class="opacity-60">Kolkata HQ | PAN-India</p>
@@ -677,7 +672,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-20 pt-8 border-t border-white/10 text-center text-[9px] text-slate-500 uppercase tracking-widest">
                 &copy; 2026 Stratedge Communications Pvt. Ltd. All rights reserved.
             </div>
@@ -685,9 +679,17 @@
     </footer>
 
     <script>
-        const apiKey = ""; // API Key provided by environment
+        /** * AI FEATURES ACTION REQUIRED:
+         * To use AI features on your live site, get an API key from https://aistudio.google.com/ 
+         * and paste it below. 
+         */
+        const apiKey = ""; 
 
         async function callGemini(prompt) {
+            if(!apiKey) {
+                console.warn("Gemini API Key missing. AI features disabled.");
+                return "Please provide an API key in the code to enable AI insights.";
+            }
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const systemPrompt = "You are a brand strategy consultant for Stratedge Communications, specializing in architecture and real estate. Provide professional, concise, and high-impact responses.";
             
@@ -711,7 +713,7 @@
                     await new Promise(res => setTimeout(res, delay));
                 }
             }
-            throw new Error('All retries failed');
+            throw new Error('AI Service busy. Please try again later.');
         }
 
         async function generateAIInsight() {
@@ -728,7 +730,7 @@
                 const insight = await callGemini(`Give a 2-sentence brand strategy tip specifically for a ${sector} firm in the Indian built environment market. Focus on positioning and storytelling.`);
                 content.innerHTML = `<p class="italic text-blue-900">"${insight.trim()}"</p>`;
             } catch (e) {
-                content.innerText = "Sorry, I couldn't generate a tip right now. Please try again later.";
+                content.innerText = e.message;
             } finally {
                 content.classList.remove('opacity-50');
                 loader.classList.add('hidden');
@@ -774,26 +776,18 @@
             }
         });
 
-        function toggleMenu() {
-            // Mobile menu logic
-        }
-
-        // Hero Background Slider Logic
         document.addEventListener('DOMContentLoaded', () => {
             const slider = document.getElementById('hero-slider');
             if (slider) {
                 setInterval(() => {
-                    // Animate to the next slide smoothly
                     slider.style.transition = 'transform 1s ease-in-out';
                     slider.style.transform = 'translateX(-100%)';
-
-                    // After the 1s animation completes, seamlessly reset DOM for infinite circular loop
                     setTimeout(() => {
                         slider.style.transition = 'none';
-                        slider.appendChild(slider.firstElementChild); // Move first image to the end
+                        slider.appendChild(slider.firstElementChild);
                         slider.style.transform = 'translateX(0)';
                     }, 1000); 
-                }, 7000); // Swipe transition triggers every 7 seconds
+                }, 7000);
             }
         });
     </script>
@@ -801,34 +795,36 @@
     <!-- Firebase Integration -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Initialize Firebase Backend
-        const firebaseConfig = {
-            apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
-            authDomain: "stratedge-website.firebaseapp.com",
-            projectId: "stratedge-website",
-            storageBucket: "stratedge-website.firebasestorage.app",
-            messagingSenderId: "123456789",
-            appId: "1:123456789:web:abcdef"
-        };
+        /** * DATABASE ACTION REQUIRED:
+         * Replace the values below with your real credentials from Firebase Console.
+         * Project Settings > Your Apps > Web App.
+         */
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
+              authDomain: "stratedge-website.firebaseapp.com",
+              databaseURL: "https://stratedge-website-default-rtdb.firebaseio.com",
+              projectId: "stratedge-website",
+              storageBucket: "stratedge-website.firebasestorage.app",
+              messagingSenderId: "977499109777",
+              appId: "1:977499109777:web:98f877adc00cf5fff48230",
+              measurementId: "G-EGVYBJ3F5G"
+            };
+
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
         
         let currentUser = null;
 
-        // Ensure user is securely authenticated before writing to the database
         const initAuth = async () => {
             try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
+                await signInAnonymously(auth);
             } catch (error) {
-                console.error("Authentication error:", error);
+                console.error("Firebase Authentication Error:", error);
             }
         };
 
@@ -838,54 +834,56 @@
             currentUser = user;
         });
 
-        // Form Submission Logic
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             if (!currentUser) {
-                showNotification('error', 'Connecting to secure server. Please wait a moment and try again.');
+                showNotification('error', 'Initializing database connection. Please wait a moment.');
                 return;
             }
 
             const submitBtn = document.getElementById('submitBtn');
             const originalBtnText = submitBtn.innerHTML;
             
-            // Show loading state
             submitBtn.innerHTML = '<div class="loading-spinner" style="width: 16px; height: 16px; border-width: 2px;"></div> <span class="ml-2">Submitting...</span>';
             submitBtn.disabled = true;
 
-            // Collect Data
-            const formData = {
-                name: document.getElementById('formName').value,
-                phone: document.getElementById('formPhone').value,
-                email: document.getElementById('formEmail').value,
-                sector: document.getElementById('formSector').value,
-                service: document.getElementById('formService').value,
-                source: document.getElementById('formSource').value || 'Not specified',
-                description: document.getElementById('projectDesc').value,
-                timestamp: new Date().toISOString(),
-                userId: currentUser.uid
-            };
-
             try {
-                // Send to Firestore Leads Collection
+                const formData = {
+                    name: document.getElementById('formName').value,
+                    phone: document.getElementById('formPhone').value,
+                    email: document.getElementById('formEmail').value,
+                    sector: document.getElementById('formSector').value,
+                    service: document.getElementById('formService').value,
+                    source: document.getElementById('formSource').value || 'Not specified',
+                    description: document.getElementById('projectDesc').value,
+                    timestamp: new Date().toISOString(),
+                    userId: currentUser.uid
+                };
+
                 const leadsRef = collection(db, 'leads');
-                await addDoc(leadsRef, formData);
                 
-                // Reset form and show success
+                // Timeout guard to prevent UI hanging
+                const timeoutGuard = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error("Database connection timed out.")), 10000)
+                );
+
+                await Promise.race([
+                    addDoc(leadsRef, formData),
+                    timeoutGuard
+                ]);
+                
                 document.getElementById('contactForm').reset();
                 showNotification('success', 'Thank you! Your request has been securely submitted. Our team will contact you soon.');
             } catch (error) {
-                console.error("Error adding document: ", error);
-                showNotification('error', 'Failed to submit request. Please try again or contact us directly.');
+                console.error("Firestore Error:", error);
+                showNotification('error', 'Submission failed. Ensure Firestore is enabled in Test Mode in your Firebase Console.');
             } finally {
-                // Revert button state
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
         });
 
-        // Helper function for user feedback messages
         function showNotification(type, message) {
             const notif = document.getElementById('formNotification');
             notif.textContent = message;
@@ -897,7 +895,7 @@
             notif.classList.remove('hidden');
             setTimeout(() => {
                 notif.classList.add('hidden');
-            }, 5000); // Hide after 5 seconds
+            }, 6000);
         }
     </script>
 </body>
