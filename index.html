@@ -584,7 +584,7 @@
                     message: document.getElementById('projectDesc').value, 
                     timestamp: new Date().toISOString() 
                 });
-                showNotification('success', 'Request submitted successfully!'); e.target.reset();
+                showNotification('success', 'Request submitted successfully! Our team will reach out soon.'); e.target.reset();
             } catch (err) { showNotification('error', 'Submission failed.'); } finally { btn.disabled = false; btn.innerHTML = oldText; }
         });
 
