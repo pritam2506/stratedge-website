@@ -492,7 +492,7 @@ const firebaseConfig = {
             btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             try {
                 await addDoc(collection(db, "leads"), { name: document.getElementById('formName').value, phone: phoneDigits, email: emailValue, sector: document.getElementById('formSector').value, service: document.getElementById('formService').value, source: document.getElementById('formSource').value, message: document.getElementById('projectDesc').value, timestamp: new Date().toISOString() });
-                showNotification('success', 'Request submitted successfully!'); e.target.reset();
+                showNotification('success', 'Request submitted successfully! Our team will reach out to you soon.'); e.target.reset();
             } catch (err) { showNotification('error', 'Submission failed.'); } finally { btn.disabled = false; btn.innerHTML = old; }
         });
 
