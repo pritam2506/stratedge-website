@@ -45,7 +45,7 @@
             border-radius: 1rem;
             z-index: -1;
         }
-        /* AI Modal Styles */
+        /* AI & Case Study Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -98,6 +98,28 @@
             display: flex;
             transition: transform 1s ease-in-out;
         }
+
+        /* Case Study Carousel Styling */
+        .case-study-slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .case-study-item {
+            flex: 0 0 100%; /* Default Mobile */
+            padding: 0 15px;
+        }
+        @media (min-width: 768px) {
+            .case-study-item { flex: 0 0 50%; }
+        }
+        @media (min-width: 1024px) {
+            .case-study-item { flex: 0 0 33.333%; } /* 3 at a time */
+        }
+
+        /* Dot active state */
+        .dot.active {
+            background-color: #f97316; /* Orange-500 */
+            width: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -109,11 +131,11 @@
                 <h3 class="serif text-2xl text-blue-800">✨ AI Brand Insight</h3>
                 <button onclick="toggleAIModal()" class="text-slate-400 hover:text-orange-600"><i class="fas fa-times"></i></button>
             </div>
-            <div id="aiContent" class="text-slate-600 leading-relaxed font-light">
+            <div id="aiContent" class="text-slate-600 leading-relaxed font-light text-sm md:text-base">
                 Please select your sector to get a customized brand strategy tip...
             </div>
             <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                <select id="aiSector" class="flex-1 px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 bg-white">
+                <select id="aiSector" class="flex-1 px-4 py-3 rounded-xl border border-slate-200 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 bg-white text-sm">
                     <option value="Architect">Architect</option>
                     <option value="Developer">Real Estate Developer</option>
                     <option value="Interior Designer">Interior Designer</option>
@@ -122,6 +144,16 @@
                     <span id="aiBtnText">Generate</span>
                     <div id="aiBtnLoader" class="loading-spinner hidden"></div>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study Detail Modal -->
+    <div id="caseModal" class="modal-overlay">
+        <div class="bg-white rounded-[2.5rem] p-8 md:p-12 max-w-2xl w-full mx-4 shadow-2xl relative overflow-y-auto max-h-[90vh]">
+            <button onclick="closeCaseModal()" class="absolute top-6 right-6 text-slate-400 hover:text-orange-600 text-xl"><i class="fas fa-times"></i></button>
+            <div id="caseDetailContent">
+                <!-- Populated by JS -->
             </div>
         </div>
     </div>
@@ -141,6 +173,7 @@
                 <a href="#services" class="hover:text-orange-500 transition">Services</a>
                 <a href="#value-prop" class="hover:text-orange-500 transition">Our Edge</a>
                 <a href="#testimonials" class="hover:text-orange-500 transition">Testimonials</a>
+                <a href="#case-studies" class="hover:text-orange-500 transition">Case Studies</a>
                 <a href="#founder" class="hover:text-orange-500 transition">Founder</a>
                 <a href="#get-started" class="bg-blue-800 text-white px-5 py-2.5 rounded hover:bg-blue-900 transition shadow-lg shadow-blue-800/20">Get Started</a>
             </div>
@@ -155,6 +188,7 @@
             <a href="#services" onclick="toggleMobileMenu()" class="hover:text-orange-500">Services</a>
             <a href="#value-prop" onclick="toggleMobileMenu()" class="hover:text-orange-500">Our Edge</a>
             <a href="#testimonials" onclick="toggleMobileMenu()" class="hover:text-orange-500">Testimonials</a>
+            <a href="#case-studies" onclick="toggleMobileMenu()" class="hover:text-orange-500">Case Studies</a>
             <a href="#founder" onclick="toggleMobileMenu()" class="hover:text-orange-500">Founder</a>
             <a href="#get-started" onclick="toggleMobileMenu()" class="text-orange-600 font-bold">Get Started</a>
         </div>
@@ -198,7 +232,7 @@
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-5">
                     <h2 class="serif text-4xl mb-6 text-blue-900">Who We Are</h2>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8 text-sm md:text-base">
                         Stratedge Communications is a premier brand strategy firm with a PAN-India outreach, recognized by <strong>IIM Bangalore – Women Startup Programme, 2024</strong>, and proudly partnering with the <strong>RERI department of IIMB since 2026</strong>. We act as an exclusive media publication house specifically for the built environment.
                     </p>
                     <div class="space-y-6">
@@ -206,17 +240,14 @@
                             <div class="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <i class="fas fa-check text-[10px] text-orange-600"></i>
                             </div>
-                            <p class="text-slate-700 font-medium">Expertise in bridging architectural concepts with everyday understanding.</p>
+                            <p class="text-slate-700 font-medium text-sm">Expertise in bridging architectural concepts with everyday understanding.</p>
                         </div>
                         <div class="flex items-start">
                             <div class="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <i class="fas fa-check text-[10px] text-orange-600"></i>
                             </div>
-                            <p class="text-slate-700 font-medium">Dedicated to architects, developers, and construction professionals.</p>
+                            <p class="text-slate-700 font-medium text-sm">Dedicated to architects, developers, and construction professionals.</p>
                         </div>
-                        <p class="text-slate-500 italic mt-4 border-l-2 border-orange-200 pl-4 text-sm leading-relaxed">
-                            Trusted by leading industry players, including major sanitaryware sellers in Eastern India.
-                        </p>
                     </div>
                 </div>
 
@@ -251,31 +282,19 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden">
-                            <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10">
-                                <i class="fas fa-users text-amber-400 group-hover:text-orange-500 text-xs"></i>
-                            </div>
+                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-center">
                             <p class="text-2xl font-bold text-white leading-none mb-1 relative z-10">10+</p>
                             <p class="text-[9px] uppercase tracking-widest font-bold text-amber-200 relative z-10">Designers Served</p>
                         </div>
-                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden">
-                            <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10">
-                                <i class="fas fa-newspaper text-amber-400 group-hover:text-orange-500 text-xs"></i>
-                            </div>
+                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-center">
                             <p class="text-2xl font-bold text-white leading-none mb-1 relative z-10">5+</p>
                             <p class="text-[9px] uppercase tracking-widest font-bold text-amber-200 relative z-10">Publications</p>
                         </div>
-                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden">
-                            <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10">
-                                <i class="fas fa-trophy text-amber-400 group-hover:text-orange-500 text-xs"></i>
-                            </div>
+                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-center">
                             <p class="text-2xl font-bold text-white leading-none mb-1 relative z-10">5+</p>
                             <p class="text-[9px] uppercase tracking-widest font-bold text-amber-200 relative z-10">Awards Helped</p>
                         </div>
-                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden">
-                            <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10">
-                                <i class="fas fa-redo-alt text-amber-400 group-hover:text-orange-500 text-xs"></i>
-                            </div>
+                        <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-center">
                             <p class="text-2xl font-bold text-white leading-none mb-1 relative z-10">100%</p>
                             <p class="text-[9px] uppercase tracking-widest font-bold text-amber-200 relative z-10">Retention</p>
                         </div>
@@ -293,50 +312,35 @@
                 <div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0">
                         <i class="fas fa-chess-knight text-2xl text-orange-500"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-blue-900">Brand Strategy</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed">Tailored roadmaps to elevate visibility, benchmark value offerings, and build market impact.</p>
-                    <ul class="text-sm text-slate-500 space-y-3 border-t pt-6 border-slate-50">
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Visual & Verbal Identity</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Market Positioning</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Strategic Roadmaps</li>
-                    </ul>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Tailored roadmaps to elevate visibility, benchmark value offerings, and build market impact.</p>
                 </div>
 
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0">
                         <i class="fas fa-bullhorn text-2xl text-orange-500"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-blue-900">Digital Marketing</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed">Connecting you with your audience through content-driven storytelling and media outreach.</p>
-                    <ul class="text-sm text-slate-500 space-y-3 border-t pt-6 border-slate-50">
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Social Media Management</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Media Publications</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Lead Generation</li>
-                    </ul>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Connecting you with your audience through content-driven storytelling and media outreach.</p>
                 </div>
 
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover">
-                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0">
                         <i class="fas fa-users-cog text-2xl text-orange-500"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-blue-900">Consulting & Recruitment</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed">Expert guidance to optimize operations and secure the best talent for your winning team.</p>
-                    <ul class="text-sm text-slate-500 space-y-3 border-t pt-6 border-slate-50">
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Management Consulting</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Recruitment Support</li>
-                        <li class="flex items-center font-medium"><i class="fas fa-chevron-right text-[10px] text-amber-500 mr-3"></i>Process Optimization</li>
-                    </ul>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Expert guidance to optimize operations and secure the best talent for your winning team.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Proposition Section -->
+    <!-- Value Proposition Section (RESTORED TO BLUE) -->
     <section id="value-prop" class="py-24 px-6 bg-blue-950 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16">
@@ -350,9 +354,7 @@
                         <i class="fas fa-search text-amber-400 text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-amber-400">Customer Need</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">
-                        Design and construction professionals require effective <strong>branding, digital marketing, recruitment,</strong> and <strong>lead generation</strong> to enhance business operations and secure a dominant market presence.
-                    </p>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base">Design and construction professionals require effective branding, digital marketing, recruitment, and lead generation to enhance operations.</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-orange-500 to-amber-500 border border-orange-400/30 p-10 rounded-[2.5rem] card-hover shadow-2xl shadow-orange-500/20">
@@ -360,9 +362,7 @@
                         <i class="fas fa-lightbulb text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-white">Our Solution</h3>
-                    <p class="text-amber-50 leading-relaxed font-light">
-                        We provide <strong>tailored services</strong> that empower target professionals to streamline processes, increase visibility, benchmark value offerings, and drive sustained growth through customized, high-impact strategies.
-                    </p>
+                    <p class="text-amber-50 leading-relaxed font-light text-sm md:text-base">We provide tailored services that empower target professionals to streamline processes, increase visibility, and drive growth.</p>
                 </div>
 
                 <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm">
@@ -370,9 +370,7 @@
                         <i class="fas fa-star text-amber-400 text-xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-amber-400">Competitive Advantage</h3>
-                    <p class="text-slate-300 leading-relaxed font-light">
-                        Our <strong>deep industry expertise</strong> and personalized approach—specifically designed for the architectural and construction sectors—distinguish us from generic agencies that lack niche technical insight.
-                    </p>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base">Our deep industry expertise and personalized approach distinguish us from generic agencies lacking niche technical insight.</p>
                 </div>
             </div>
 
@@ -388,20 +386,17 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 px-6 bg-slate-50 border-b border-slate-100">
+    <section id="testimonials" class="py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="serif text-4xl mb-4 text-blue-900">Client Perspectives</h2>
                 <div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
-                <p class="text-slate-500 mt-6 max-w-xl mx-auto">Trusted by leading architecture and design firms across India to redefine their brand narrative.</p>
+                <p class="text-slate-500 mt-6 max-w-xl mx-auto text-sm md:text-base">Trusted by leading architecture and design firms across India to redefine their brand narrative.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="text-orange-200 mb-6"><i class="fas fa-quote-left text-4xl"></i></div>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed font-light">"Stratedge understood our design philosophy better than any agency we've worked with. Their brand strategy gave us the clarity we needed to scale."</p>
-                    </div>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"Stratedge understood our design philosophy better than any agency we've worked with. Their brand strategy gave us the clarity we needed."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50">
                         <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">AS</div>
                         <div>
@@ -410,12 +405,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="text-orange-200 mb-6"><i class="fas fa-quote-left text-4xl"></i></div>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed font-light">"The recruitment consulting service was a game-changer. They found us talent that didn't just have the skills, but also the design mindset."</p>
-                    </div>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"The recruitment consulting service was a game-changer. They found us talent that didn't just have skills, but also the design mindset."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50">
                         <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">VM</div>
                         <div>
@@ -424,12 +415,8 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover">
-                    <div>
-                        <div class="text-orange-200 mb-6"><i class="fas fa-quote-left text-4xl"></i></div>
-                        <p class="text-slate-600 italic mb-8 leading-relaxed font-light">"Stratedge translated our technical excellence into a brand story that clients actually understand and trust."</p>
-                    </div>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"Stratedge translated our technical excellence into a brand story that clients actually understand and trust."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50">
                         <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">SG</div>
                         <div>
@@ -442,16 +429,42 @@
         </div>
     </section>
 
+    <!-- Case Studies Section (Blue Theme) -->
+    <section id="case-studies" class="py-24 px-6 bg-blue-950 overflow-hidden relative text-white">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="serif text-4xl mb-4 text-white">Case Studies</h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
+                <p class="text-slate-300 mt-6 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed">Delivering strategic value and storytelling excellence for industry titans. Explore our tangible impact on the built environment.</p>
+            </div>
+
+            <div class="relative px-2">
+                <div class="overflow-hidden">
+                    <div id="caseStudySlider" class="case-study-slider">
+                        <!-- Case Study items populated by JS -->
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <button onclick="slideCases('prev')" class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-orange-500 transition-all z-10 border border-white/10 hidden md:flex"><i class="fas fa-chevron-left"></i></button>
+                <button onclick="slideCases('next')" class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-orange-500 transition-all z-10 border border-white/10 hidden md:flex"><i class="fas fa-chevron-right"></i></button>
+            </div>
+
+            <div id="caseDots" class="flex justify-center gap-3 mt-16">
+                <!-- Dots populated by JS -->
+            </div>
+        </div>
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    </section>
+
     <!-- Founder Section -->
-    <section id="founder" class="py-24 px-6 bg-white overflow-hidden border-b border-slate-100">
+    <section id="founder" class="py-24 px-6 bg-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="order-2 md:order-1 relative">
                     <div class="founder-frame">
                         <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group bg-slate-100">
-                            <img src="https://worldarchitecture.org/cdnimgfiles/extuploadc/rupshachakraborty_wacreporterindia.jpg" 
-                                 alt="Rupsha Chakraborty" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="https://worldarchitecture.org/cdnimgfiles/extuploadc/rupshachakraborty_wacreporterindia.jpg" alt="Rupsha Chakraborty" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
                             <div class="absolute inset-0 bg-orange-500/10 group-hover:bg-transparent transition-all"></div>
                         </div>
                         <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 hidden lg:block">
@@ -464,23 +477,16 @@
                     <span class="text-orange-500 font-bold tracking-widest uppercase text-sm block mb-4">Founder's Spotlight</span>
                     <h2 class="serif text-5xl mb-8 text-blue-900">Rupsha Chakraborty</h2>
                     <div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed">
-                        <p>
-                            An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. As a former country reporter for the <span class="text-slate-900 font-semibold">World Architecture Community (WAC)</span>, she gained international recognition for her articles and video interviews with global architectural icons.
-                        </p>
-                        <p>
-                            She completed her management studies at <span class="text-slate-900 font-semibold">NICMAR, Pune</span> and is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme (NSRCEL)</span>.
-                        </p>
-                        <p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg">
-                            "I founded Stratedge to help common people understand architecture better and tell the stories of business owners to greater audiences."
-                        </p>
+                        <p class="text-sm md:text-base">An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. She is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme</span>.</p>
+                        <p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg text-sm md:text-base">"I founded Stratedge to help common people understand architecture better and tell the stories of business owners to greater audiences."</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Become a Client Section -->
-    <section id="get-started" class="py-24 px-6 bg-white border-b border-slate-100">
+    <!-- Become a Client Section (FULL RESTORED) -->
+    <section id="get-started" class="py-24 px-6 bg-slate-50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-16">
                 <div>
@@ -491,26 +497,11 @@
                     <div class="space-y-6 mb-12">
                         <a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit" rel="noopener noreferrer">
                             <div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0 transition-colors"><i class="fas fa-envelope"></i></div>
-                            <span class="font-medium underline decoration-orange-500/0 hover:decoration-orange-500/100">info.stratedgecommunications@gmail.com</span>
+                            <span class="font-medium underline decoration-orange-500/0 hover:decoration-orange-500/100 text-sm md:text-base truncate">info.stratedgecommunications@gmail.com</span>
                         </a>
                         <div class="flex items-center text-slate-700">
                             <div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 shrink-0"><i class="fas fa-phone-alt"></i></div>
-                            <span class="font-medium">+91-9123872596</span>
-                        </div>
-                    </div>
-                    
-                    <div class="pt-8 border-t border-slate-100">
-                        <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400 mb-5">Connect with us</p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="social-link ig w-11 h-11 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 shadow-sm">
-                                <i class="fab fa-instagram text-lg"></i>
-                            </a>
-                            <a href="#" class="social-link fb w-11 h-11 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 shadow-sm">
-                                <i class="fab fa-facebook-f text-base"></i>
-                            </a>
-                            <a href="#" class="social-link li w-11 h-11 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 shadow-sm">
-                                <i class="fab fa-linkedin-in text-base"></i>
-                            </a>
+                            <span class="font-medium text-sm md:text-base">+91-9123872596</span>
                         </div>
                     </div>
                 </div>
@@ -527,11 +518,11 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">Full Name <span class="text-red-500">*</span></label>
-                                <input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white">
+                                <input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-sm">
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">Phone <span class="text-red-500">*</span></label>
-                                <input type="tel" id="formPhone" placeholder="00000 00000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white">
+                                <input type="tel" id="formPhone" placeholder="00000 00000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-sm">
                                 <div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 uppercase tracking-wider">
                                     <i class="fas fa-exclamation-circle mr-1"></i> Phone number must be exactly 10 digits
                                 </div>
@@ -540,7 +531,7 @@
                         
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">Email <span class="text-red-500">*</span></label>
-                            <input type="email" id="formEmail" placeholder="john@firm.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white">
+                            <input type="email" id="formEmail" placeholder="john@firm.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-sm">
                             <div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 uppercase tracking-wider">
                                 <i class="fas fa-exclamation-circle mr-1"></i> Use format: name@domain.com (must contain "@" and ".")
                             </div>
@@ -549,7 +540,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">Sector <span class="text-red-500">*</span></label>
-                                <select id="formSector" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600">
+                                <select id="formSector" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600 text-sm">
                                     <option value="" disabled selected>Select Sector</option>
                                     <option>Architect</option>
                                     <option>Real Estate Developer</option>
@@ -559,7 +550,7 @@
                             </div>
                             <div>
                                 <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">Service <span class="text-red-500">*</span></label>
-                                <select id="formService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600">
+                                <select id="formService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600 text-sm">
                                     <option value="" disabled selected>Select Service</option>
                                     <option>Brand Strategy</option>
                                     <option>Digital Marketing</option>
@@ -570,7 +561,7 @@
 
                         <div>
                             <label class="block text-[10px] font-bold uppercase tracking-widest text-blue-800 mb-2">How did you find us? <span class="text-red-500">*</span></label>
-                            <select id="formSource" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600">
+                            <select id="formSource" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-slate-600 text-sm">
                                 <option value="" disabled selected>Please select</option>
                                 <option>Instagram</option>
                                 <option>LinkedIn</option>
@@ -588,10 +579,10 @@
                                     <div id="enhanceLoader" class="loading-spinner hidden" style="width: 10px; height: 10px; border-width: 1px;"></div>
                                 </button>
                             </div>
-                            <textarea id="projectDesc" required rows="4" placeholder="Briefly describe your goals..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white"></textarea>
+                            <textarea id="projectDesc" required rows="4" placeholder="Briefly describe your goals..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 outline-none transition bg-white text-sm"></textarea>
                         </div>
 
-                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 hover:to-amber-600 shadow-xl shadow-orange-500/20 transition-all flex items-center justify-center space-x-2">
+                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 hover:to-amber-600 shadow-xl shadow-orange-500/20 transition-all flex items-center justify-center space-x-2 text-sm md:text-base">
                             <span>Submit Request</span>
                             <i class="fas fa-paper-plane text-xs"></i>
                         </button>
@@ -603,10 +594,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (FULL INFO RESTORED) -->
     <footer id="contact" class="bg-blue-950 py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-12 text-xs md:text-sm">
                 <!-- Branding Col -->
                 <div class="max-w-sm shrink-0 w-full lg:w-1/4">
                     <div class="flex items-center space-x-3 mb-6">
@@ -628,12 +619,12 @@
                         <div class="space-y-3 text-[10px] text-slate-300">
                             <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition block overflow-hidden text-ellipsis">info.stratedgecommunications@gmail.com</a>
                             <p class="font-medium hover:text-amber-400 transition">+91-9123872596</p>
-                            <p class="opacity-60">Kolkata HQ | PAN-India</p>
+                            <p class="opacity-60 text-[9px]">Kolkata HQ | PAN-India</p>
                         </div>
                     </div>
                     <div>
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Sectors We Serve</h4>
-                        <div class="space-y-3 text-[10px] text-slate-300">
+                        <div class="space-y-3 text-[10px] text-slate-300 text-xs">
                             <p class="font-medium">Architects</p>
                             <p class="font-medium">Interior Designers</p>
                             <p class="font-medium">MEP Consultants</p>
@@ -643,10 +634,10 @@
                     </div>
                     <div>
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Legal & Privacy</h4>
-                        <div class="space-y-3 text-[10px] text-slate-300">
-                            <a href="privacy.html" class="font-medium hover:text-amber-400 transition block">Data Privacy</a>
-                            <a href="#" class="font-medium hover:text-amber-400 transition block">Terms of Service</a>
-                            <a href="#" class="font-medium hover:text-amber-400 transition block">Cookie Policy</a>
+                        <div class="space-y-3 text-[10px] text-slate-300 text-xs">
+                            <a href="#" class="font-medium hover:text-amber-400 transition block">Data Privacy</a>
+                            <a href="#" class="font-medium hover:text-amber-400 transition block text-[9px]">Terms of Service</a>
+                            <a href="#" class="font-medium hover:text-amber-400 transition block text-[9px]">Cookie Policy</a>
                         </div>
                     </div>
                     <div>
@@ -667,38 +658,35 @@
         </div>
     </footer>
 
-    <!-- Firebase SDKs -->
+    <!-- Firebase SDKs & Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // ACTION: Update this object with your actual Firebase project settings from Console
+        // ACTION: Update with your Firebase credentials
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
-  authDomain: "stratedge-website.firebaseapp.com",
-  databaseURL: "https://stratedge-website-default-rtdb.firebaseio.com",
-  projectId: "stratedge-website",
-  storageBucket: "stratedge-website.firebasestorage.app",
-  messagingSenderId: "977499109777",
-  appId: "1:977499109777:web:98f877adc00cf5fff48230",
-  measurementId: "G-EGVYBJ3F5G"
-};
+        const firebaseConfig = {
+          apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
+          authDomain: "stratedge-website.firebaseapp.com",
+          databaseURL: "https://stratedge-website-default-rtdb.firebaseio.com",
+          projectId: "stratedge-website",
+          storageBucket: "stratedge-website.firebasestorage.app",
+          messagingSenderId: "977499109777",
+          appId: "1:977499109777:web:98f877adc00cf5fff48230",
+          measurementId: "G-EGVYBJ3F5G"
+        };
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Form Submission Logic with Validation
+        // Form Logic
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             let isValid = true;
 
-            // Phone Validation: 10 digits
             const phoneInput = document.getElementById('formPhone');
             const phoneError = document.getElementById('phoneError');
             const phoneDigits = phoneInput.value.replace(/\D/g, ''); 
-            
             if (phoneDigits.length !== 10) {
                 phoneError.classList.remove('hidden');
                 phoneInput.classList.add('border-red-500');
@@ -709,11 +697,9 @@ const firebaseConfig = {
                 phoneInput.classList.remove('border-red-500');
             }
 
-            // Email Validation: @ and .
             const emailInput = document.getElementById('formEmail');
             const emailError = document.getElementById('emailError');
             const emailValue = emailInput.value.trim();
-            
             if (!emailValue.includes('@') || !emailValue.includes('.')) {
                 emailError.classList.remove('hidden');
                 emailInput.classList.add('border-red-500');
@@ -742,9 +728,7 @@ const firebaseConfig = {
                     message: document.getElementById('projectDesc').value,
                     timestamp: new Date().toISOString()
                 };
-
                 await addDoc(collection(db, "leads"), formData);
-                
                 showNotification('success', 'Thank you! Your request has been sent.');
                 e.target.reset();
             } catch (err) {
@@ -766,11 +750,97 @@ const firebaseConfig = {
     </script>
 
     <script>
-        // UI Helpers
+        const caseStudies = [
+            { id: 1, icon: 'fa-building-columns', company: 'Urban Dynamics', title: 'Identity Redesign', shortDesc: 'Complete brand overhaul for a Tier-1 real estate developer in Mumbai.', fullDetail: 'Re-imagined visual identity to align with luxury project launches. Resulted in 40% higher recall and improved lead quality.' },
+            { id: 2, icon: 'fa-pen-ruler', company: 'Studio Apex', title: 'Strategic Roadmap', shortDesc: 'Defining a 5-year growth plan for a boutique architecture firm.', fullDetail: 'Developed a scalable growth strategy focused on architectural journalism and awards, helping the studio win 3 national awards.' },
+            { id: 3, icon: 'fa-helmet-safety', company: 'K-Build Group', title: 'Media Publication', shortDesc: 'Storytelling for high-impact construction restoration projects.', fullDetail: 'Documented technical excellence of heritage restorations through high-impact media, bridging engineering with human narrative.' },
+            { id: 4, icon: 'fa-couch', company: 'LuxeInteriors', title: 'Lead Generation', shortDesc: 'Targeted funnel for high-net-worth premium interior design clients.', fullDetail: 'Built an AI-enhanced funnel increasing qualified luxury leads by 120% within the first 6 months.' },
+            { id: 5, icon: 'fa-city', company: 'Horizon MEP', title: 'Value Benchmarking', shortDesc: 'Positioning engineering as an essential high-value design component.', fullDetail: 'Reframed MEP as a sustainability-first offering, allowing Horizon to charge a 15% premium over generic competitors.' },
+            { id: 6, icon: 'fa-leaf', company: 'GreenScape', title: 'Sustainable Branding', shortDesc: 'Launch campaign for India’s next major eco-conscious developer.', fullDetail: 'Positioned as India’s leading eco-developer through content-driven digital marketing.' },
+            { id: 7, icon: 'fa-vector-square', company: 'Design Hub', title: 'Recruitment', shortDesc: 'Securing top-tier design talent for a rapidly growing studio.', fullDetail: 'Streamlined hiring to focus on "design-mindset," reducing turnover by 30%.' }
+        ];
+
+        let currentCaseIdx = 0;
+        const slider = document.getElementById('caseStudySlider');
+        const dotsContainer = document.getElementById('caseDots');
+
+        function initCaseStudies() {
+            slider.innerHTML = caseStudies.map(cs => `
+                <div class="case-study-item">
+                    <div onclick="openCaseModal(${cs.id})" class="bg-blue-900/40 p-10 rounded-[2.5rem] border border-blue-800 backdrop-blur-sm card-hover cursor-pointer h-full text-center flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-800 rounded-3xl flex items-center justify-center mb-6">
+                            <i class="fa-solid ${cs.icon} text-2xl text-orange-500"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-4 text-lg md:text-xl">${cs.company}</h4>
+                        <p class="text-slate-300 text-sm font-light leading-relaxed">${cs.shortDesc}</p>
+                    </div>
+                </div>
+            `).join('');
+            updateDots();
+        }
+
+        function getStepCount() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function slideCases(dir) {
+            const step = getStepCount();
+            if (dir === 'next') {
+                currentCaseIdx++;
+                if (currentCaseIdx > caseStudies.length - step) currentCaseIdx = 0;
+            } else {
+                currentCaseIdx--;
+                if (currentCaseIdx < 0) currentCaseIdx = caseStudies.length - step;
+            }
+            updateSliderPosition();
+        }
+
+        function updateDots() {
+            const step = getStepCount();
+            const totalDots = caseStudies.length - step + 1;
+            dotsContainer.innerHTML = Array.from({length: totalDots}).map((_, i) => `
+                <button onclick="goToCase(${i})" class="dot w-2 h-2 rounded-full bg-slate-700 transition-all duration-300 ${i === currentCaseIdx ? 'active' : ''}"></button>
+            `).join('');
+        }
+
+        function goToCase(idx) {
+            currentCaseIdx = idx;
+            updateSliderPosition();
+        }
+
+        function updateSliderPosition() {
+            const stepPercent = 100 / getStepCount();
+            slider.style.transform = `translateX(-${currentCaseIdx * stepPercent}%)`;
+            updateDots();
+        }
+
+        function openCaseModal(id) {
+            const cs = caseStudies.find(c => c.id === id);
+            const content = document.getElementById('caseDetailContent');
+            content.innerHTML = `
+                <div class="flex items-center gap-6 mb-8 text-left">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div>
+                    <div>
+                        <h3 class="serif text-2xl md:text-3xl text-blue-900">${cs.company}</h3>
+                        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1">${cs.title}</p>
+                    </div>
+                </div>
+                <div class="h-1 bg-slate-100 w-full mb-8 rounded-full"></div>
+                <p class="text-slate-600 leading-relaxed font-light text-base md:text-lg mb-8 text-left">${cs.fullDetail}</p>
+                <div class="bg-blue-50 p-6 rounded-[2rem] text-left">
+                    <h5 class="text-blue-900 font-bold text-xs uppercase mb-2">Impact Highlight</h5>
+                    <p class="text-blue-800 italic text-sm font-medium">"Strategic alignment resulted in measurable growth and higher equity within the premium built environment sector."</p>
+                </div>
+            `;
+            document.getElementById('caseModal').classList.add('modal-active');
+        }
+
+        function closeCaseModal() { document.getElementById('caseModal').classList.remove('modal-active'); }
         function toggleAIModal() { document.getElementById('aiModal').classList.toggle('modal-active'); }
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
         
-        // AI Simulation logic
         async function generateAIInsight() {
             const sector = document.getElementById('aiSector').value;
             const content = document.getElementById('aiContent');
@@ -780,7 +850,7 @@ const firebaseConfig = {
             loader.classList.remove('hidden');
             btnText.classList.add('hidden');
             setTimeout(() => {
-                content.innerHTML = `<p class="italic text-blue-900">"Position yourself as a thought leader by showcasing the data-driven impact of your designs on occupant well-being and market value."</p>`;
+                content.innerHTML = `<p class="italic text-blue-900">"For a ${sector} firm, prioritize architectural journalism to build trust through technical authority and visual storytelling."</p>`;
                 content.classList.remove('opacity-50');
                 loader.classList.add('hidden');
                 btnText.classList.remove('hidden');
@@ -795,24 +865,30 @@ const firebaseConfig = {
             loader.classList.remove('hidden');
             text.classList.add('hidden');
             setTimeout(() => {
-                descArea.value = "Seeking a specialized brand roadmap to differentiate our architectural practice and amplify our industry presence across India's built environment market.";
+                descArea.value = "Seeking a comprehensive brand strategy and digital marketing roadmap to elevate our architectural studio's market presence and premium lead acquisition.";
                 loader.classList.add('hidden');
                 text.classList.remove('hidden');
             }, 1000);
         }
 
-        // Hero Slider
         document.addEventListener('DOMContentLoaded', () => {
-            const slider = document.getElementById('hero-slider');
+            initCaseStudies();
+            const heroSlider = document.getElementById('hero-slider');
             setInterval(() => {
-                slider.style.transition = 'transform 1s ease-in-out';
-                slider.style.transform = 'translateX(-100%)';
+                heroSlider.style.transition = 'transform 1s ease-in-out';
+                heroSlider.style.transform = 'translateX(-100%)';
                 setTimeout(() => {
-                    slider.style.transition = 'none';
-                    slider.appendChild(slider.firstElementChild);
-                    slider.style.transform = 'translateX(0)';
+                    heroSlider.style.transition = 'none';
+                    heroSlider.appendChild(heroSlider.firstElementChild);
+                    heroSlider.style.transform = 'translateX(0)';
                 }, 1000); 
             }, 7000);
+            setInterval(() => slideCases('next'), 3500);
+        });
+
+        window.addEventListener('resize', () => {
+            currentCaseIdx = 0;
+            updateSliderPosition();
         });
     </script>
 </body>
