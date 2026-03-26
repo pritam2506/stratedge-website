@@ -226,8 +226,8 @@
                             </svg>
                         </div>
                         <div class="absolute top-[25%] left-[10%] z-10 flex items-center gap-3">
-                            <div class="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white relative">
-                                <div class="absolute inset-0 bg-orange-500 rounded-full animate-ping opacity-30"></div>
+                            <div class="w-10 h-10 bg-orange-50 text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white relative">
+                                <div class="absolute inset-0 bg-orange-50 rounded-full animate-ping opacity-30"></div>
                                 <i class="fas fa-map-marker-alt text-xs"></i>
                             </div>
                             <div class="bg-white/90 backdrop-blur-sm px-3 py-2 rounded-xl border border-slate-100 shadow-sm">
@@ -430,40 +430,56 @@
     <footer id="contact" class="bg-blue-950 py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+                <!-- Branding Col -->
                 <div class="max-w-sm shrink-0 w-full lg:w-1/4">
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="bg-white p-1 rounded"><img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-8 w-auto object-contain blend-logo-light"></div>
                         <span class="font-bold text-xl tracking-tight uppercase text-white">Stratedge</span>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed font-light mb-8">Stratedge Communications Pvt. Ltd. — A visionary brand strategy firm empowering the built environment through storytelling.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-link ig w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link fb w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="social-link li w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-linkedin-in text-xs"></i></a>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 flex-1 w-full">
+                <!-- Info Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 flex-1 w-full">
                     <div>
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Connect</h4>
                         <div class="space-y-3 text-[10px] text-slate-300">
-                            <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition block">info.stratedgecommunications@gmail.com</a>
-                            <p class="font-medium">+91-9123872596</p>
+                            <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition block overflow-hidden text-ellipsis">info.stratedgecommunications@gmail.com</a>
+                            <p class="font-medium hover:text-amber-400 transition">+91-9123872596</p>
+                            <p class="opacity-60">Kolkata HQ | PAN-India</p>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Sectors</h4>
+                        <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Sectors We Serve</h4>
                         <div class="space-y-3 text-[10px] text-slate-300">
                             <p class="font-medium">Architects</p>
-                            <p class="font-medium">Developers</p>
+                            <p class="font-medium">Interior Designers</p>
+                            <p class="font-medium">MEP Consultants</p>
+                            <p class="font-medium">Real Estate Brands</p>
+                            <p class="font-medium">Construction Firms</p>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Legal</h4>
+                        <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Legal & Privacy</h4>
                         <div class="space-y-3 text-[10px] text-slate-300">
-                            <a href="#" class="font-medium block">Privacy Policy</a>
+                            <a href="privacy.html" class="font-medium hover:text-amber-400 transition block">Data Privacy</a>
+                            <a href="#" class="font-medium hover:text-amber-400 transition block">Terms of Service</a>
+                            <a href="#" class="font-medium hover:text-amber-400 transition block">Cookie Policy</a>
                         </div>
                     </div>
                     <div>
                         <h4 class="text-[10px] font-bold text-amber-400 uppercase tracking-widest mb-6">Compliance</h4>
                         <div class="space-y-2 text-[9px] text-slate-400 font-medium">
                             <p><span class="text-orange-500 uppercase">CIN:</span> U70200WB2025PTC277733</p>
+                            <p><span class="text-orange-500 uppercase">REG NO:</span> 277733</p>
+                            <p><span class="text-orange-500 uppercase">GST:</span> 19ABPCS6820D1Z2</p>
                             <p><span class="text-orange-500 uppercase">PAN:</span> ABPCS6820D</p>
+                            <p><span class="text-orange-500 uppercase">INC:</span> 24th March, 2025</p>
                         </div>
                     </div>
                 </div>
@@ -479,7 +495,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // ACTION: Update this object with your actual Firebase project settings
+        // ACTION: Update this object with your actual Firebase project settings from Console
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
           apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
@@ -587,7 +603,7 @@
             loader.classList.remove('hidden');
             btnText.classList.add('hidden');
             setTimeout(() => {
-                content.innerHTML = `<p class="italic text-blue-900">"Focus on telling the story of your projects through the eyes of the people who use them, creating an emotional bridge that justifies your premium value."</p>`;
+                content.innerHTML = `<p class="italic text-blue-900">"Position yourself as a thought leader by showcasing the data-driven impact of your designs on occupant well-being and market value."</p>`;
                 content.classList.remove('opacity-50');
                 loader.classList.add('hidden');
                 btnText.classList.remove('hidden');
@@ -602,7 +618,7 @@
             loader.classList.remove('hidden');
             text.classList.add('hidden');
             setTimeout(() => {
-                descArea.value = "Seeking a strategic brand roadmap to redefine our identity and enhance digital presence, specifically tailored for the premium built environment market in India.";
+                descArea.value = "Seeking a specialized brand roadmap to differentiate our architectural practice and amplify our industry presence across India's built environment market.";
                 loader.classList.add('hidden');
                 text.classList.remove('hidden');
             }, 1000);
