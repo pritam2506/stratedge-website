@@ -160,20 +160,20 @@
         </div>
     </div>
 
-    <!-- Admin Login Modal -->
+    <!-- Admin Login Modal - Adjusted Width for Better Centering -->
     <div id="adminModal" class="modal-overlay">
-        <div class="bg-white rounded-[2.5rem] p-8 max-sm w-full mx-4 shadow-2xl relative text-left">
+        <div class="bg-white rounded-[2.5rem] p-8 md:p-12 max-w-md w-full mx-4 shadow-2xl relative text-left">
             <button onclick="closeAdminModal()" class="absolute top-6 right-6 text-slate-400 hover:text-orange-600 text-xl"><i class="fas fa-times"></i></button>
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-800"><i class="fas fa-shield-alt text-xl"></i></div>
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-800"><i class="fas fa-shield-alt text-2xl"></i></div>
                 <h3 class="serif text-2xl text-blue-900">Admin Portal</h3>
                 <p class="text-xs text-slate-500 mt-2">Enter credentials to download leads</p>
             </div>
             <div class="space-y-4">
-                <div><input type="text" id="adminUser" placeholder="Username" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm"></div>
-                <div><input type="password" id="adminPass" placeholder="Password" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm"></div>
-                <div id="adminError" class="hidden text-red-500 text-[10px] font-bold text-center">Invalid credentials</div>
-                <button onclick="downloadLeads()" id="adminDownloadBtn" class="w-full bg-blue-900 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition shadow-lg flex items-center justify-center gap-2 text-sm">
+                <div><input type="text" id="adminUser" placeholder="Username" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm bg-slate-50"></div>
+                <div><input type="password" id="adminPass" placeholder="Password" class="w-full px-5 py-4 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm bg-slate-50"></div>
+                <div id="adminError" class="hidden text-red-500 text-[10px] font-bold text-center uppercase tracking-wider">Invalid credentials</div>
+                <button onclick="downloadLeads()" id="adminDownloadBtn" class="w-full bg-blue-950 text-white py-4 rounded-xl font-bold hover:bg-blue-900 transition shadow-xl flex items-center justify-center gap-2 text-sm mt-4">
                     <span>Login & Download CSV</span><i class="fas fa-download"></i>
                 </button>
             </div>
@@ -185,7 +185,6 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-white p-1 rounded shadow-sm flex items-center justify-center overflow-hidden">
-                    <!-- Increased width for the logo animation area -->
                     <video autoplay loop muted playsinline class="h-14 w-64 md:w-72 object-contain">
                         <source src="Stratedge Logo GIF.mp4" type="video/mp4">
                     </video>
@@ -248,7 +247,6 @@
                         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
                             <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
                                 <path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f8fafc" stroke-width="8" stroke-linecap="round"/>
-                                <!-- Roadmap Line Animation with CSS Flow -->
                                 <path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" class="path-animate"/>
                             </svg>
                         </div>
@@ -271,23 +269,23 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-left text-white">
                             <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10"><i class="fas fa-users text-amber-400 group-hover:text-orange-500 text-xs text-left"></i></div>
-                            <p class="text-2xl font-bold leading-none mb-1 relative z-10 text-left">10+</p>
-                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10 text-left">Designers Served</p>
+                            <p class="text-2xl font-bold leading-none mb-1 relative z-10">10+</p>
+                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10">Designers Served</p>
                         </div>
                         <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-left text-white">
                             <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10"><i class="fas fa-newspaper text-amber-400 group-hover:text-orange-500 text-xs text-left"></i></div>
-                            <p class="text-2xl font-bold leading-none mb-1 relative z-10 text-left">5+</p>
-                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10 text-left">Publications</p>
+                            <p class="text-2xl font-bold leading-none mb-1 relative z-10">5+</p>
+                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10">Publications</p>
                         </div>
                         <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-left text-white">
                             <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10"><i class="fas fa-trophy text-amber-400 group-hover:text-orange-500 text-xs text-left"></i></div>
-                            <p class="text-2xl font-bold leading-none mb-1 relative z-10 text-left">5+</p>
-                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10 text-left">Awards Helped</p>
+                            <p class="text-2xl font-bold leading-none mb-1 relative z-10">5+</p>
+                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10">Awards Helped</p>
                         </div>
                         <div class="bg-blue-800 p-5 rounded-[2rem] border border-blue-700 shadow-lg group transition-transform hover:-translate-y-1 relative overflow-hidden text-left text-white">
                             <div class="w-8 h-8 bg-white/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-white transition-colors relative z-10"><i class="fas fa-redo-alt text-amber-400 group-hover:text-orange-500 text-xs text-left"></i></div>
-                            <p class="text-2xl font-bold leading-none mb-1 relative z-10 text-left">100%</p>
-                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10 text-left">Retention</p>
+                            <p class="text-2xl font-bold leading-none mb-1 relative z-10">100%</p>
+                            <p class="text-[9px] uppercase font-bold text-amber-200 relative z-10">Retention</p>
                         </div>
                     </div>
                 </div>
@@ -302,124 +300,124 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover text-left">
                     <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0"><i class="fas fa-chess-knight text-2xl text-orange-500"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 text-left">Brand Strategy</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base text-left">Tailored roadmaps to elevate visibility, benchmark value offerings, and build market impact.</p>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Brand Strategy</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Tailored roadmaps to elevate visibility, benchmark value offerings, and build market impact.</p>
                 </div>
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover text-left">
                     <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0"><i class="fas fa-bullhorn text-2xl text-orange-500"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 text-left">Digital Marketing</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base text-left">Connecting you with your audience through content-driven storytelling and media outreach.</p>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Digital Marketing</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Connecting you with your audience through content-driven storytelling and media outreach.</p>
                 </div>
                 <div class="bg-white p-10 rounded-[2rem] shadow-sm border border-slate-100 card-hover text-left">
                     <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-8 mx-auto md:mx-0"><i class="fas fa-users-cog text-2xl text-orange-500"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-blue-900 text-left">Consulting & Recruitment</h3>
-                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base text-left">Expert guidance to optimize operations and secure the best talent for your winning team.</p>
+                    <h3 class="text-xl font-bold mb-4 text-blue-900">Consulting & Recruitment</h3>
+                    <p class="text-slate-600 mb-8 leading-relaxed text-sm md:text-base">Expert guidance to optimize operations and secure the best talent for your winning team.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Value Proposition Section -->
-    <section id="value-prop" class="py-24 px-6 bg-blue-950 text-white relative overflow-hidden text-left">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-16 text-center"><span class="text-amber-400 font-bold tracking-widest uppercase text-sm mb-4 block">Our Value Proposition</span><h2 class="serif text-4xl md:text-5xl leading-tight text-white text-center">Empowering the <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500 text-center">Built Environment</span></h2></div>
+    <!-- Value Proposition -->
+    <section id="value-prop" class="py-24 px-6 bg-blue-950 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10 text-left">
+            <div class="text-center mb-16 text-center"><span class="text-amber-400 font-bold tracking-widest uppercase text-sm mb-4 block">Our Value Proposition</span><h2 class="serif text-4xl md:text-5xl leading-tight text-white text-center">Empowering the <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Built Environment</span></h2></div>
             <div class="grid md:grid-cols-3 gap-8 mb-20 text-left">
-                <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm text-left">
+                <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm">
                     <div class="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-search text-amber-400 text-xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-amber-400 text-left">Customer Need</h3>
-                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Design and construction professionals require branding, digital marketing, and recruitment to enhance operations.</p>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Customer Need</h3>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base">Design and construction professionals require branding and marketing to enhance operations.</p>
                 </div>
-                <div class="bg-gradient-to-br from-orange-500 to-amber-500 border border-orange-400/30 p-10 rounded-[2.5rem] card-hover shadow-2xl shadow-orange-500/20 text-left text-white">
+                <div class="bg-gradient-to-br from-orange-500 to-amber-500 border border-orange-400/30 p-10 rounded-[2.5rem] card-hover shadow-2xl shadow-orange-500/20 text-white">
                     <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6 backdrop-blur-md"><i class="fas fa-lightbulb text-white text-xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-white text-left">Our Solution</h3>
-                    <p class="text-amber-50 leading-relaxed font-light text-sm md:text-base text-left">We provide tailored services that empower target professionals to streamline processes, increase visibility, and drive growth.</p>
+                    <h3 class="text-xl font-bold mb-4 text-white">Our Solution</h3>
+                    <p class="text-amber-50 leading-relaxed font-light text-sm md:text-base">We provide tailored services that empower target professionals to drive growth.</p>
                 </div>
-                <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm text-left">
+                <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm">
                     <div class="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-star text-amber-400 text-xl"></i></div>
-                    <h3 class="text-xl font-bold mb-4 text-amber-400 text-left">Competitive Advantage</h3>
-                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Our deep industry expertise and personalized approach distinguish us from generic agencies lacking niche insight.</p>
+                    <h3 class="text-xl font-bold mb-4 text-amber-400">Competitive Advantage</h3>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base">Our deep industry expertise distinguishes us from generic agencies lacking niche insight.</p>
                 </div>
             </div>
-            <div class="text-center max-w-4xl mx-auto"><p class="text-amber-100 text-xl md:text-2xl italic font-light leading-relaxed">"Keeping you ahead of the competition and growing with confidence."</p><div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-8 rounded-full"></div></div>
         </div>
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px] pointer-events-none"></div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section id="testimonials" class="py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto text-left">
             <div class="text-center mb-16 text-center"><h2 class="serif text-4xl mb-4 text-blue-900">Client Perspectives</h2><div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full text-center"></div><p class="text-slate-500 mt-6 max-w-xl mx-auto text-sm md:text-base text-center">Trusted by leading architecture and design firms across India.</p></div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge understood our design philosophy better than any agency we've worked with. Their brand strategy gave us clarity."</p>
-                    <div class="flex items-center pt-6 border-t border-slate-50 text-left">
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"Stratedge understood our design philosophy better than any agency we've worked with."</p>
+                    <div class="flex items-center pt-6 border-t border-slate-50">
                         <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">AS</div>
-                        <div><h4 class="font-bold text-slate-900 text-sm text-left">Ar. Amit Sharma</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left">Studio Prism</p></div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Ar. Amit Sharma</h4><p class="text-[9px] text-orange-500 uppercase font-bold">Studio Prism</p></div>
                     </div>
                 </div>
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"The recruitment consulting service was a game-changer. They found us talent that had skills and design mindset."</p>
-                    <div class="flex items-center pt-6 border-t border-slate-50 text-left">
-                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs text-left">VM</div>
-                        <div><h4 class="font-bold text-slate-900 text-sm text-left text-left">Vikram Mehra</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left text-left">Skyline Developers</p></div>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"The recruitment consulting service was a game-changer. They found us talent with skills and design mindset."</p>
+                    <div class="flex items-center pt-6 border-t border-slate-50">
+                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">VM</div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Vikram Mehra</h4><p class="text-[9px] text-orange-500 uppercase font-bold">Skyline Developers</p></div>
                     </div>
                 </div>
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge translated our technical excellence into a brand story that clients actually understand and trust."</p>
-                    <div class="flex items-center pt-6 border-t border-slate-50 text-left">
-                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs text-left">SG</div>
-                        <div><h4 class="font-bold text-slate-900 text-sm text-left text-left">Sanjay Gupta</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left text-left">SG Consultants</p></div>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base">"Stratedge translated our technical excellence into a brand story that clients actually understand."</p>
+                    <div class="flex items-center pt-6 border-t border-slate-50">
+                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">SG</div>
+                        <div><h4 class="font-bold text-slate-900 text-sm">Sanjay Gupta</h4><p class="text-[9px] text-orange-500 uppercase font-bold">SG Consultants</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section (Blue Theme) -->
+    <!-- Case Studies -->
     <section id="case-studies" class="py-24 px-6 bg-blue-950 overflow-hidden relative text-white text-center">
         <div class="max-w-7xl mx-auto relative z-10 text-center">
-            <div class="text-center mb-16 text-center"><h2 class="serif text-4xl mb-4 text-white text-center">Case Studies</h2><div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full text-center"></div><p class="text-slate-300 mt-6 max-w-2xl mx-auto text-base font-light text-center">Delivering strategic impact for industry titans.</p></div>
+            <div class="text-center mb-16 text-center"><h2 class="serif text-4xl mb-4 text-white text-center">Case Studies</h2><div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full text-center"></div><p class="text-slate-300 mt-6 max-w-2xl mx-auto text-base font-light text-center">Explore our strategic impact on the built environment.</p></div>
             <div class="relative px-2">
                 <div class="overflow-hidden"><div id="caseStudySlider" class="case-study-slider text-left"></div></div>
                 <button onclick="slideCases('prev')" class="absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-orange-500 transition-all z-10 border border-white/10 hidden md:flex"><i class="fas fa-chevron-left"></i></button>
                 <button onclick="slideCases('next')" class="absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-orange-500 transition-all z-10 border border-white/10 hidden md:flex"><i class="fas fa-chevron-right"></i></button>
             </div>
-            <div id="caseDots" class="flex justify-center gap-3 mt-16 text-center"></div>
+            <div id="caseDots" class="flex justify-center gap-3 mt-16"></div>
         </div>
-        <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
     </section>
 
     <!-- Founder Section -->
     <section id="founder" class="py-24 px-6 bg-white border-b border-slate-100 text-left">
-        <div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-16 items-center text-left">
-            <div class="order-2 md:order-1 relative text-left">
-                <div class="founder-frame text-left">
-                    <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group bg-slate-100 text-left"><img src="https://worldarchitecture.org/cdnimgfiles/extuploadc/rupshachakraborty_wacreporterindia.jpg" alt="Rupsha Chakraborty" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
-                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 hidden lg:block text-left"><p class="text-xs uppercase font-bold text-orange-500 mb-1 text-left">Founder & CEO</p><h4 class="font-bold text-blue-900 text-left">Rupsha Chakraborty</h4></div>
+        <div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 relative">
+                <div class="founder-frame">
+                    <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group bg-slate-100"><img src="https://worldarchitecture.org/cdnimgfiles/extuploadc/rupshachakraborty_wacreporterindia.jpg" alt="Rupsha Chakraborty" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 hidden lg:block"><p class="text-xs uppercase font-bold text-orange-500 mb-1">Founder & CEO</p><h4 class="font-bold text-blue-900">Rupsha Chakraborty</h4></div>
                 </div>
             </div>
             <div class="order-1 md:order-2">
-                <span class="text-orange-500 font-bold uppercase text-sm block mb-4 text-left">Founder's Spotlight</span><h2 class="serif text-5xl mb-8 text-blue-900 text-left">Rupsha Chakraborty</h2><div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed text-left"><p class="text-left">An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. She is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme</span>.</p><p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg text-sm md:text-base text-left">"I founded Stratedge to help common people understand architecture better and tell the stories of business owners to greater audiences."</p></div>
+                <span class="text-orange-500 font-bold uppercase text-sm block mb-4">Founder's Spotlight</span><h2 class="serif text-5xl mb-8 text-blue-900">Rupsha Chakraborty</h2><div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed"><p>An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. She is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme</span>.</p><p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg text-sm md:text-base">"I founded Stratedge to help common people understand architecture better."</p></div>
             </div>
         </div></div>
     </section>
 
-    <!-- Become a Client Section -->
-    <section id="get-started" class="py-24 px-6 bg-slate-50 border-b border-slate-100 text-left">
+    <!-- Become a Client -->
+    <section id="get-started" class="py-24 px-6 bg-slate-50 border-b border-slate-100">
         <div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-16 text-left">
-            <div class="text-left text-left"><h2 class="serif text-4xl md:text-5xl mb-8 text-blue-900 leading-tight text-left">Let's Redefine Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400 italic">Impact</span></h2><p class="text-slate-600 text-lg mb-10 leading-relaxed font-light text-left text-left text-left">Ready to schedule your consultation?</p>
-                <div class="space-y-6 mb-12 text-left text-left"><a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit text-left text-left text-left"><div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 transition-colors text-left text-left text-left text-left text-left"><i class="fas fa-envelope text-left text-left"></i></div><span class="font-medium text-sm md:text-base truncate text-left text-left text-left text-left">info.stratedgecommunications@gmail.com</span></a><div class="flex items-center text-slate-700 text-left text-left text-left"><div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 text-left text-left text-left text-left text-left"><i class="fas fa-phone-alt text-left text-left text-left text-left"></i></div><span class="font-medium text-sm md:text-base text-left text-left text-left text-left">+91-9123872596</span></div></div>
+            <div>
+                <h2 class="serif text-4xl md:text-5xl mb-8 text-blue-900 leading-tight">Let's Redefine Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400 italic">Impact</span></h2>
+                <p class="text-slate-600 text-lg mb-10 leading-relaxed font-light">Ready to schedule your consultation?</p>
+                <div class="space-y-6 mb-12">
+                    <a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit"><div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 transition-colors"><i class="fas fa-envelope"></i></div><span class="font-medium text-sm md:text-base truncate">info.stratedgecommunications@gmail.com</span></a>
+                    <div class="flex items-center text-slate-700"><div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500"><i class="fas fa-phone-alt"></i></div><span class="font-medium text-sm md:text-base">+91-9123872596</span></div>
+                </div>
             </div>
             <div class="bg-blue-50/50 p-8 md:p-12 rounded-[2.5rem] border border-blue-100 shadow-sm text-left">
-                <div class="flex justify-between items-start mb-8 text-left text-left"><h3 class="serif text-3xl text-blue-900 text-left">Become a Client</h3><p class="text-[9px] font-bold text-slate-400 mt-2 uppercase text-left"><span class="text-red-500">*</span> Required</p></div>
-                <form id="contactForm" class="space-y-6 text-left">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
-                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left text-left">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" placeholder="00000 00000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Must be 10 digits</div></div>
+                <div class="flex justify-between items-start mb-8"><h3 class="serif text-3xl text-blue-900">Become a Client</h3><p class="text-[9px] font-bold text-slate-400 mt-2 uppercase"><span class="text-red-500">*</span> Required</p></div>
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
+                        <div><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" placeholder="00000 00000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 uppercase">Must be 10 digits</div></div>
                     </div>
-                    <div class="text-left text-left text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left text-left text-left text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left text-left text-left text-left">Invalid format (@ and .)</div></div>
+                    <div><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 uppercase">Invalid format (@ and .)</div></div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -455,9 +453,9 @@
                         </select>
                     </div>
 
-                    <div class="text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left">How can we help? <span class="text-red-500">*</span></label><textarea id="projectDesc" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"></textarea></div>
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 transition shadow-xl text-center text-center text-center text-center text-center">Submit Request</button>
-                    <div id="formNotification" class="hidden mt-4 text-left text-left text-left text-left text-left text-left text-left"></div>
+                    <div><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2">How can we help? <span class="text-red-500">*</span></label><textarea id="projectDesc" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></textarea></div>
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 transition shadow-xl text-center">Submit Request</button>
+                    <div id="formNotification" class="hidden mt-4"></div>
                 </form>
             </div>
         </div></div>
@@ -469,69 +467,68 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 text-left text-xs md:text-sm text-white">
                 
                 <!-- 1. Branding (Expanded Column) -->
-                <div class="lg:col-span-3 flex flex-col text-left">
-                    <div class="flex items-center space-x-3 mb-6 text-left">
-                        <div class="bg-white p-1 rounded shadow-sm text-left text-left text-left text-left text-left text-left text-left"><img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-8 w-auto text-left text-left text-left text-left text-left text-left text-left text-left"></div>
-                        <span class="font-bold text-xl uppercase text-left text-left text-left text-left text-left">Stratedge</span>
+                <div class="lg:col-span-3 flex flex-col">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="bg-white p-1 rounded shadow-sm text-left"><img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-8 w-auto"></div>
+                        <span class="font-bold text-xl uppercase">Stratedge</span>
                     </div>
-                    <p class="text-xs text-slate-400 font-light text-left text-left text-left text-left text-left leading-relaxed">Stratedge Communications Pvt. Ltd. — Visionary brand strategy for the built environment through high-impact storytelling.</p>
-                    <div class="flex space-x-3 mt-6 text-left text-left text-left text-left text-left text-left text-left text-left text-left">
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">Stratedge Communications Pvt. Ltd. — Visionary brand strategy for the built environment through high-impact storytelling.</p>
+                    <div class="flex space-x-3 mt-6">
                         <a href="#" class="social-link ig w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link fb w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-facebook-f text-xs"></i></a>
                         <a href="#" class="social-link li w-9 h-9 bg-white/10 border border-white/10 rounded-lg flex items-center justify-center text-slate-300 hover:text-white"><i class="fab fa-linkedin-in text-xs"></i></a>
                     </div>
                 </div>
 
-                <!-- 2. Connect (Balanced Width) -->
-                <div class="lg:col-span-3 text-left">
-                    <h4 class="text-amber-400 font-bold uppercase mb-6 text-left text-left text-left text-left text-left" style="font-size: 10px;">Connect</h4>
-                    <div class="space-y-4 text-slate-300 text-left text-left text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">
-                        <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition block lg:whitespace-nowrap break-all text-left text-left text-left text-left text-left text-left">info.stratedgecommunications@gmail.com</a>
-                        <p class="font-medium hover:text-amber-400 transition cursor-pointer text-left text-left text-left text-left text-left text-left text-left text-left">+91-9123872596</p>
-                        <p class="opacity-60 text-left text-left text-left text-left text-left text-left text-left text-left">Kolkata HQ | PAN-India</p>
+                <!-- 2. Connect -->
+                <div class="lg:col-span-3">
+                    <h4 class="text-amber-400 font-bold uppercase mb-6" style="font-size: 10px;">Connect</h4>
+                    <div class="space-y-4 text-slate-300" style="font-size: 10px;">
+                        <a href="mailto:info.stratedgecommunications@gmail.com" class="font-medium hover:text-amber-400 transition block lg:whitespace-nowrap break-all">info.stratedgecommunications@gmail.com</a>
+                        <p class="font-medium hover:text-amber-400 transition cursor-pointer">+91-9123872596</p>
+                        <p class="opacity-60">Kolkata HQ | PAN-India</p>
                     </div>
                 </div>
 
                 <!-- 3. Sectors -->
-                <div class="lg:col-span-2 text-left">
-                    <h4 class="text-amber-400 font-bold uppercase mb-6 text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">Sectors We Serve</h4>
-                    <div class="space-y-3 text-slate-300 text-left text-left text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">
-                        <p class="font-medium text-left text-left">Architects</p>
-                        <p class="font-medium text-left text-left text-left">Interior Designers</p>
-                        <p class="font-medium text-left text-left text-left text-left">MEP Consultants</p>
-                        <p class="font-medium text-left text-left text-left text-left text-left">Real Estate Brands</p>
-                        <p class="font-medium text-left text-left text-left text-left text-left text-left">Construction Firms</p>
+                <div class="lg:col-span-2">
+                    <h4 class="text-amber-400 font-bold uppercase mb-6" style="font-size: 10px;">Sectors We Serve</h4>
+                    <div class="space-y-3 text-slate-300" style="font-size: 10px;">
+                        <p class="font-medium">Architects</p>
+                        <p class="font-medium">Interior Designers</p>
+                        <p class="font-medium">MEP Consultants</p>
+                        <p class="font-medium">Real Estate Brands</p>
+                        <p class="font-medium">Construction Firms</p>
                     </div>
                 </div>
 
                 <!-- 4. Legal -->
-                <div class="lg:col-span-2 text-left">
-                    <h4 class="text-amber-400 font-bold uppercase mb-6 text-left text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">Legal & Privacy</h4>
-                    <div class="space-y-3 text-slate-300 text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">
-                        <a href="privacy.html" class="block hover:text-white text-left text-left text-left text-left text-left text-left text-left">Data Privacy</a>
-                        <a href="#" class="block hover:text-white text-left text-left text-left text-left text-left text-left text-left text-left">Terms of Service</a>
-                        <a href="#" class="block hover:text-white text-left text-left text-left text-left text-left text-left text-left text-left text-left">Cookie Policy</a>
+                <div class="lg:col-span-2">
+                    <h4 class="text-amber-400 font-bold uppercase mb-6" style="font-size: 10px;">Legal & Privacy</h4>
+                    <div class="space-y-3 text-slate-300" style="font-size: 10px;">
+                        <a href="privacy.html" class="block hover:text-white">Data Privacy</a>
+                        <a href="#" class="block hover:text-white">Terms of Service</a>
+                        <a href="#" class="block hover:text-white">Cookie Policy</a>
                     </div>
                 </div>
 
                 <!-- 5. Compliance -->
-                <div class="lg:col-span-2 text-left">
-                    <h4 class="text-amber-400 font-bold uppercase mb-6 text-left text-left text-left text-left text-left text-left text-left text-left" style="font-size: 10px;">Compliance</h4>
-                    <div class="space-y-2 text-slate-400 font-medium text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left" style="font-size: 9px;">
-                        <p class="text-left text-left text-left text-left text-left text-left text-left text-left"><span class="text-orange-500 uppercase text-left text-left text-left">CIN:</span> U70200WB2025PTC277733</p>
-                        <p class="text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"><span class="text-orange-500 uppercase text-left text-left text-left text-left text-left">REG NO:</span> 277733</p>
-                        <p class="text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"><span class="text-orange-500 uppercase text-left text-left text-left text-left text-left text-left text-left">GST:</span> 19ABPCS6820D1Z2</p>
-                        <p class="text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"><span class="text-orange-500 uppercase text-left text-left text-left text-left text-left text-left text-left text-left text-left">PAN:</span> ABPCS6820D</p>
-                        <p class="text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"><span class="text-orange-500 uppercase text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left">INC:</span> 24th March, 2025</p>
+                <div class="lg:col-span-2">
+                    <h4 class="text-amber-400 font-bold uppercase mb-6" style="font-size: 10px;">Compliance</h4>
+                    <div class="space-y-2 text-slate-400 font-medium" style="font-size: 9px;">
+                        <p><span class="text-orange-500 uppercase">CIN:</span> U70200WB2025PTC277733</p>
+                        <p><span class="text-orange-500 uppercase">REG NO:</span> 277733</p>
+                        <p><span class="text-orange-500 uppercase">GST:</span> 19ABPCS6820D1Z2</p>
+                        <p><span class="text-orange-500 uppercase">PAN:</span> ABPCS6820D</p>
+                        <p><span class="text-orange-500 uppercase">INC:</span> 24th March, 2025</p>
                     </div>
                 </div>
 
             </div>
             
-            <!-- Copyright & Hidden Admin Portal -->
-            <div class="mt-20 pt-8 border-t border-white/10 flex justify-center items-center gap-2 text-[9px] text-slate-500 uppercase tracking-widest text-center text-center text-center text-center">
+            <div class="mt-20 pt-8 border-t border-white/10 flex justify-center items-center gap-2 text-[9px] text-slate-500 uppercase tracking-widest text-center">
                 <span>&copy; 2026 Stratedge Communications Pvt. Ltd. All rights reserved.</span>
-                <button onclick="openAdminModal()" class="hover:text-amber-400 transition ml-2 text-left text-left text-left" title="Admin Login"><i class="fas fa-lock text-left text-left text-left"></i></button>
+                <button onclick="openAdminModal()" class="hover:text-amber-400 transition ml-2" title="Admin Login"><i class="fas fa-lock text-left"></i></button>
             </div>
         </div>
     </footer>
@@ -543,7 +540,7 @@
         import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         // ACTION: Update with your real Firebase credentials
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
           apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
           authDomain: "stratedge-website.firebaseapp.com",
@@ -554,21 +551,15 @@
           appId: "1:977499109777:web:98f877adc00cf5fff48230",
           measurementId: "G-EGVYBJ3F5G"
         };
+        const app = initializeApp(firebaseConfig), db = getFirestore(app), auth = getAuth(app);
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
-        // Form Submission
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
             const phoneDigits = document.getElementById('formPhone').value.replace(/\D/g, ''); 
-            if (phoneDigits.length !== 10) { document.getElementById('phoneError').classList.remove('hidden'); isValid = false; } 
-            else { document.getElementById('phoneError').classList.add('hidden'); }
-            const emailValue = document.getElementById('formEmail').value.trim();
-            if (!emailValue.includes('@') || !emailValue.includes('.')) { document.getElementById('emailError').classList.remove('hidden'); isValid = false; } 
-            else { document.getElementById('emailError').classList.add('hidden'); }
+            if (phoneDigits.length !== 10) { document.getElementById('phoneError').classList.remove('hidden'); isValid = false; } else { document.getElementById('phoneError').classList.add('hidden'); }
+            const emVal = document.getElementById('formEmail').value.trim();
+            if (!emVal.includes('@') || !emVal.includes('.')) { document.getElementById('emailError').classList.remove('hidden'); isValid = false; } else { document.getElementById('emailError').classList.add('hidden'); }
             if (!isValid) return;
 
             const btn = document.getElementById('submitBtn'), oldText = btn.innerHTML;
@@ -577,24 +568,17 @@
                 await addDoc(collection(db, "leads"), { 
                     name: document.getElementById('formName').value, 
                     phone: phoneDigits, 
-                    email: emailValue, 
+                    email: emVal, 
                     sector: document.getElementById('formSector').value,
                     service: document.getElementById('formService').value,
                     source: document.getElementById('formSource').value,
                     message: document.getElementById('projectDesc').value, 
                     timestamp: new Date().toISOString() 
                 });
-                showNotification('success', 'Request submitted successfully! Our team will reach out soon.'); e.target.reset();
+                showNotification('success', 'Request submitted successfully!'); e.target.reset();
             } catch (err) { showNotification('error', 'Submission failed.'); } finally { btn.disabled = false; btn.innerHTML = oldText; }
         });
 
-        function showNotification(t, m) {
-            const n = document.getElementById('formNotification');
-            n.textContent = m; n.className = `p-4 rounded-xl text-sm font-bold mt-4 ${t === 'success' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`;
-            n.classList.remove('hidden'); setTimeout(() => n.classList.add('hidden'), 5000);
-        }
-
-        // Admin CSV Download
         window.downloadLeads = async () => {
             const user = document.getElementById('adminUser').value, pass = document.getElementById('adminPass').value, btn = document.getElementById('adminDownloadBtn');
             if (user !== 'admin' || pass !== 'admin') { document.getElementById('adminError').classList.remove('hidden'); return; }
@@ -610,6 +594,12 @@
                 await signOut(auth); closeAdminModal();
             } catch (e) { document.getElementById('adminError').classList.remove('hidden'); } finally { btn.disabled = false; btn.innerHTML = 'Login & Download CSV'; }
         };
+
+        function showNotification(t, m) {
+            const n = document.getElementById('formNotification');
+            n.textContent = m; n.className = `p-4 rounded-xl text-sm font-bold mt-4 ${t === 'success' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`;
+            n.classList.remove('hidden'); setTimeout(() => n.classList.add('hidden'), 5000);
+        }
     </script>
 
     <script>
@@ -618,28 +608,17 @@
         window.closeAdminModal = () => { 
             document.getElementById('adminModal').classList.remove('modal-active'); 
             document.getElementById('adminError').classList.add('hidden');
+            document.getElementById('adminUser').value = '';
+            document.getElementById('adminPass').value = '';
         };
 
-        // Scroll Logic
         window.addEventListener('scroll', () => {
             const topBtn = document.getElementById('scrollToTop');
             const bottomBtn = document.getElementById('scrollToBottom');
             const scrollPos = window.scrollY;
             const scrollHeight = document.body.scrollHeight - window.innerHeight;
-
-            // Show Bottom button when starting to scroll down
-            if (scrollPos > 100 && scrollPos < scrollHeight - 300) {
-                bottomBtn.classList.add('visible');
-            } else {
-                bottomBtn.classList.remove('visible');
-            }
-
-            // Show Top button when further down
-            if (scrollPos > 500) {
-                topBtn.classList.add('visible');
-            } else {
-                topBtn.classList.remove('visible');
-            }
+            if (scrollPos > 100 && scrollPos < scrollHeight - 300) { bottomBtn.classList.add('visible'); } else { bottomBtn.classList.remove('visible'); }
+            if (scrollPos > 500) { topBtn.classList.add('visible'); } else { topBtn.classList.remove('visible'); }
         });
 
         const caseStudies = [
@@ -659,7 +638,7 @@
                     <div onclick="openCaseModal(${cs.id})" class="bg-blue-900/40 p-10 rounded-[2.5rem] border border-blue-800 backdrop-blur-sm card-hover cursor-pointer h-full text-left flex flex-col items-center">
                         <div class="w-16 h-16 bg-blue-800 rounded-3xl flex items-center justify-center mb-6"><i class="fa-solid ${cs.icon} text-2xl text-orange-500"></i></div>
                         <h4 class="font-bold text-white mb-4 text-lg md:text-xl w-full text-left">${cs.company}</h4>
-                        <p class="text-slate-300 text-sm font-light text-left w-full">Impactful business case delivered for the built environment sector.</p>
+                        <p class="text-slate-300 text-sm font-light w-full text-left">Strategic business case delivered for the built environment sector.</p>
                     </div>
                 </div>
             `).join('');
@@ -681,7 +660,7 @@
 
         function openCaseModal(id) {
             const cs = caseStudies.find(c => c.id === id);
-            document.getElementById('caseDetailContent').innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900 text-left">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1 text-left">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left">Strategic alignment with market trends resulted in measurable business growth.</p>`;
+            document.getElementById('caseDetailContent').innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900 text-left">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1 text-left">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left">Strategic alignment resulting in measurable growth.</p>`;
             document.getElementById('caseModal').classList.add('modal-active');
         }
 
@@ -693,7 +672,6 @@
             setInterval(() => { hs.style.transition = 'transform 1s ease-in-out'; hs.style.transform = 'translateX(-100%)'; setTimeout(() => { hs.style.transition = 'none'; hs.appendChild(hs.firstElementChild); hs.style.transform = 'translateX(0)'; }, 1000); }, 7000);
             setInterval(() => slideCases('next'), 3500);
         });
-        window.addEventListener('resize', () => { curIdx = 0; updateDots(); slideCases('stay'); });
     </script>
 </body>
 </html>
