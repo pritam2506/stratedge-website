@@ -101,6 +101,26 @@
         </div>
     </div>
 
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="bg-white rounded-[2.5rem] p-8 max-w-sm w-full mx-4 shadow-2xl relative">
+            <button onclick="closeAdminModal()" class="absolute top-6 right-6 text-slate-400 hover:text-orange-600 text-xl"><i class="fas fa-times"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-blue-800"><i class="fas fa-shield-alt text-xl"></i></div>
+                <h3 class="serif text-2xl text-blue-900">Admin Portal</h3>
+                <p class="text-xs text-slate-500 mt-2">Enter credentials to download leads</p>
+            </div>
+            <div class="space-y-4">
+                <div><input type="text" id="adminUser" placeholder="Username" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm"></div>
+                <div><input type="password" id="adminPass" placeholder="Password" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm"></div>
+                <div id="adminError" class="hidden text-red-500 text-[10px] font-bold text-center">Invalid credentials</div>
+                <button onclick="downloadLeads()" id="adminDownloadBtn" class="w-full bg-blue-900 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition shadow-lg flex items-center justify-center gap-2 text-sm">
+                    <span>Login & Download CSV</span><i class="fas fa-download"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -342,10 +362,10 @@
                 <div class="flex justify-between items-start mb-8 text-left text-left"><h3 class="serif text-3xl text-blue-900 text-left">Become a Client</h3><p class="text-[9px] font-bold text-slate-400 mt-2 uppercase text-left"><span class="text-red-500">*</span> Required</p></div>
                 <form id="contactForm" class="space-y-6 text-left">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
-                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" placeholder="00000 00000" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Must be 10 digits</div></div>
+                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
+                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Must be 10 digits</div></div>
                     </div>
-                    <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Invalid format (@ and .)</div></div>
+                    <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Invalid format (@ and .)</div></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                         <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left">Sector <span class="text-red-500">*</span></label><select id="formSector" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left"><option value="" disabled selected>Select Sector</option><option>Architect</option><option>Real Estate Developer</option><option>Civil Engineer</option><option>Interior Designer</option></select></div>
                         <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left">Service <span class="text-red-500">*</span></label><select id="formService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left"><option value="" disabled selected>Select Service</option><option>Brand Strategy</option><option>Digital Marketing</option><option>Consulting</option></select></div>
@@ -423,15 +443,22 @@
                 </div>
 
             </div>
-            <div class="mt-20 pt-8 border-t border-white/10 text-center text-[9px] text-slate-500 uppercase tracking-widest text-center">&copy; 2026 Stratedge Communications Pvt. Ltd. All rights reserved.</div>
+            
+            <!-- Copyright & Hidden Admin Portal -->
+            <div class="mt-20 pt-8 border-t border-white/10 flex justify-center items-center gap-2 text-[9px] text-slate-500 uppercase tracking-widest text-center">
+                <span>&copy; 2026 Stratedge Communications Pvt. Ltd. All rights reserved.</span>
+                <button onclick="openAdminModal()" class="hover:text-amber-400 transition ml-2" title="Admin Login"><i class="fas fa-lock"></i></button>
+            </div>
         </div>
     </footer>
 
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
+        // ACTION: Update with your real Firebase credentials
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
@@ -446,7 +473,9 @@ const firebaseConfig = {
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        const auth = getAuth(app);
 
+        // Standard Client Form Submission
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
@@ -472,12 +501,90 @@ const firebaseConfig = {
             n.textContent = m; n.className = `p-4 rounded-xl text-sm font-bold mt-4 ${t === 'success' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`;
             n.classList.remove('hidden'); setTimeout(() => n.classList.add('hidden'), 5000);
         }
+
+        // Admin Download Logic (Attached to window for inline onclick)
+        window.downloadLeads = async () => {
+            const user = document.getElementById('adminUser').value;
+            const pass = document.getElementById('adminPass').value;
+            const err = document.getElementById('adminError');
+            const btn = document.getElementById('adminDownloadBtn');
+
+            if (user !== 'admin' || pass !== 'admin') {
+                err.classList.remove('hidden');
+                return;
+            }
+            err.classList.add('hidden');
+            
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+
+            try {
+                // Securely authenticate with Firebase using a mapped account
+                await signInWithEmailAndPassword(auth, "admin@stratedge.com", "admin123456");
+
+                const querySnapshot = await getDocs(collection(db, "leads"));
+                const leads = [];
+                querySnapshot.forEach((doc) => { leads.push({ id: doc.id, ...doc.data() }); });
+
+                if (leads.length === 0) {
+                    alert("No leads found in the database.");
+                    await signOut(auth); // Log out safely
+                    btn.disabled = false; btn.innerHTML = originalText;
+                    return;
+                }
+
+                // Convert to CSV
+                const headers = ["timestamp", "name", "email", "phone", "sector", "service", "source", "message"];
+                const csvRows = [];
+                csvRows.push(headers.join(','));
+
+                leads.forEach(lead => {
+                    const row = headers.map(header => {
+                        let cell = lead[header] === undefined || lead[header] === null ? '' : lead[header].toString();
+                        cell = cell.replace(/"/g, '""');
+                        if (cell.search(/("|,|\n)/g) >= 0) cell = `"${cell}"`;
+                        return cell;
+                    });
+                    csvRows.push(row.join(','));
+                });
+
+                const csvString = csvRows.join('\n');
+                const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", `stratedge_leads_${new Date().toISOString().split('T')[0]}.csv`);
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                await signOut(auth); // Log out safely after export
+                closeAdminModal();
+            } catch (error) {
+                console.error("Error fetching leads:", error);
+                err.textContent = "Auth Error: Ensure Firebase Authentication is setup.";
+                err.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
+        };
     </script>
 
     <script>
         // UI Helpers
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
         
+        // Admin Modal Controls
+        window.openAdminModal = () => { document.getElementById('adminModal').classList.add('modal-active'); };
+        window.closeAdminModal = () => { 
+            document.getElementById('adminModal').classList.remove('modal-active'); 
+            document.getElementById('adminError').classList.add('hidden');
+            document.getElementById('adminUser').value = '';
+            document.getElementById('adminPass').value = '';
+        };
+
         const caseStudies = [
             { id: 1, icon: 'fa-building-columns', company: 'Urban Dynamics', title: 'Identity Redesign' },
             { id: 2, icon: 'fa-pen-ruler', company: 'Studio Apex', title: 'Strategic Roadmap' },
@@ -495,8 +602,8 @@ const firebaseConfig = {
                 <div class="case-study-item">
                     <div onclick="openCaseModal(${cs.id})" class="bg-blue-900/40 p-10 rounded-[2.5rem] border border-blue-800 backdrop-blur-sm card-hover cursor-pointer h-full text-left flex flex-col items-center">
                         <div class="w-16 h-16 bg-blue-800 rounded-3xl flex items-center justify-center mb-6"><i class="fa-solid ${cs.icon} text-2xl text-orange-500"></i></div>
-                        <h4 class="font-bold text-white mb-4 text-lg md:text-xl text-left w-full text-left">${cs.company}</h4>
-                        <p class="text-slate-300 text-sm font-light text-left w-full text-left">Impactful business case delivered for the built environment sector.</p>
+                        <h4 class="font-bold text-white mb-4 text-lg md:text-xl text-left w-full">${cs.company}</h4>
+                        <p class="text-slate-300 text-sm font-light text-left w-full">Impactful business case delivered for the built environment sector.</p>
                     </div>
                 </div>
             `).join('');
@@ -520,7 +627,7 @@ const firebaseConfig = {
 
         function openCaseModal(id) {
             const cs = caseStudies.find(c => c.id === id), content = document.getElementById('caseDetailContent');
-            content.innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900 text-left">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1 text-left">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left text-left">Strategic alignment with market trends resulted in measurable business growth and higher brand equity within the premium built environment sector.</p>`;
+            content.innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left">Strategic alignment with market trends resulted in measurable business growth and higher brand equity within the premium built environment sector.</p>`;
             document.getElementById('caseModal').classList.add('modal-active');
         }
 
