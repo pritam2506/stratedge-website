@@ -125,8 +125,11 @@
     <nav class="fixed w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="bg-white p-1 rounded shadow-sm">
-                    <img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-10 w-auto object-contain blend-logo-light" onerror="this.src='https://via.placeholder.com/40x40?text=S'">
+                <div class="bg-white p-1 rounded shadow-sm flex items-center justify-center overflow-hidden">
+                    <!-- Logo animation linked to the .mp4 file in the same Git folder -->
+                    <video autoplay loop muted playsinline class="h-14 w-auto object-contain">
+                        <source src="Stratedge Logo GIF.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <span class="font-bold text-xl tracking-tight uppercase hidden sm:inline-block text-blue-900">Stratedge</span>
             </div>
@@ -168,7 +171,7 @@
         </div>
         <div class="relative z-20 text-center px-6 max-w-4xl">
             <h4 class="text-amber-400 font-semibold tracking-widest uppercase mb-4 opacity-90 drop-shadow-md text-sm md:text-base">First-of-its-kind in Eastern India</h4>
-            <h1 class="serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg">Empowering Your <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Brand Story</span></h1>
+            <h1 class="serif text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-lg text-center">Empowering Your <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Brand Story</span></h1>
             <p class="text-slate-200 text-base md:text-xl mb-10 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-md text-center">Strategic brand positioning and industry-focused innovation for the architecture, real estate, and construction sectors.</p>
             <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
                 <a href="#services" class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-lg font-bold hover:from-amber-600 transition shadow-xl">Our Solutions</a>
@@ -189,13 +192,12 @@
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6 text-left">
                     <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-xl relative overflow-hidden min-h-[300px]">
                         <h3 class="text-[10px] uppercase font-bold text-slate-400 absolute top-6 left-6 z-20">Growth Path</h3>
                         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
                             <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-                                <path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f8fafc" stroke-width="8" stroke-linecap="round"/>
-                                <path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" class="path-animate"/>
+                                <path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f8fafc" stroke-width="8" stroke-linecap="round"/><path d="M 25,35 C 25,70 75,30 75,85" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" class="path-animate"/>
                             </svg>
                         </div>
                         <div class="absolute top-[25%] left-[10%] z-10 flex items-center gap-3">
@@ -273,17 +275,17 @@
                 <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm text-left">
                     <div class="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-search text-amber-400 text-xl"></i></div>
                     <h3 class="text-xl font-bold mb-4 text-amber-400 text-left">Customer Need</h3>
-                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Design and construction professionals require effective branding, digital marketing, recruitment, and lead generation.</p>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Design and construction professionals require branding and marketing to enhance operations.</p>
                 </div>
                 <div class="bg-gradient-to-br from-orange-500 to-amber-500 border border-orange-400/30 p-10 rounded-[2.5rem] card-hover shadow-2xl shadow-orange-500/20 text-left text-white">
                     <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6 backdrop-blur-md"><i class="fas fa-lightbulb text-white text-xl"></i></div>
                     <h3 class="text-xl font-bold mb-4 text-white text-left">Our Solution</h3>
-                    <p class="text-amber-50 leading-relaxed font-light text-sm md:text-base text-left">We provide tailored services that empower target professionals to streamline processes, increase visibility, and drive growth.</p>
+                    <p class="text-amber-50 leading-relaxed font-light text-sm md:text-base text-left">We provide tailored services that empower target professionals to drive growth.</p>
                 </div>
                 <div class="bg-blue-900/50 border border-blue-800 p-10 rounded-[2.5rem] card-hover backdrop-blur-sm text-left">
                     <div class="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center mb-6"><i class="fas fa-star text-amber-400 text-xl"></i></div>
                     <h3 class="text-xl font-bold mb-4 text-amber-400 text-left">Competitive Advantage</h3>
-                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Our deep industry expertise and personalized approach distinguish us from generic agencies lacking niche insight.</p>
+                    <p class="text-slate-300 leading-relaxed font-light text-sm md:text-base text-left">Our deep industry expertise distinguishes us from generic agencies lacking niche insight.</p>
                 </div>
             </div>
             <div class="text-center max-w-4xl mx-auto"><p class="text-amber-100 text-xl md:text-2xl italic font-light leading-relaxed">"Keeping you ahead of the competition and growing with confidence."</p><div class="w-20 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mt-8 rounded-full"></div></div>
@@ -296,26 +298,26 @@
     <section id="testimonials" class="py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto text-left">
             <div class="text-center mb-16 text-center"><h2 class="serif text-4xl mb-4 text-blue-900">Client Perspectives</h2><div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full text-center"></div><p class="text-slate-500 mt-6 max-w-xl mx-auto text-sm md:text-base text-center">Trusted by leading architecture and design firms across India.</p></div>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge understood our design philosophy better than any agency we've worked with. Their brand strategy gave us clarity."</p>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge understood our design philosophy better than any agency we've worked with."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50 text-left">
                         <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">AS</div>
                         <div><h4 class="font-bold text-slate-900 text-sm text-left">Ar. Amit Sharma</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left">Studio Prism</p></div>
                     </div>
                 </div>
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"The recruitment consulting service was a game-changer. They found us talent that had skills and design mindset."</p>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"The recruitment consulting service was a game-changer. They found us talent with skills and design mindset."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50 text-left">
-                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">VM</div>
-                        <div><h4 class="font-bold text-slate-900 text-sm text-left">Vikram Mehra</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left">Skyline Developers</p></div>
+                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs text-left">VM</div>
+                        <div><h4 class="font-bold text-slate-900 text-sm text-left text-left">Vikram Mehra</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left text-left">Skyline Developers</p></div>
                     </div>
                 </div>
                 <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between card-hover text-left">
-                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge translated our technical excellence into a brand story that clients actually understand and trust."</p>
+                    <p class="text-slate-600 italic mb-8 leading-relaxed font-light text-sm md:text-base text-left">"Stratedge translated our technical excellence into a brand story that clients actually understand."</p>
                     <div class="flex items-center pt-6 border-t border-slate-50 text-left">
-                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs">SG</div>
-                        <div><h4 class="font-bold text-slate-900 text-sm text-left">Sanjay Gupta</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left">SG Consultants</p></div>
+                        <div class="w-10 h-10 bg-blue-50 rounded-full mr-4 flex items-center justify-center font-bold text-blue-800 text-xs text-left">SG</div>
+                        <div><h4 class="font-bold text-slate-900 text-sm text-left text-left">Sanjay Gupta</h4><p class="text-[9px] text-orange-500 uppercase font-bold text-left text-left">SG Consultants</p></div>
                     </div>
                 </div>
             </div>
@@ -324,7 +326,7 @@
 
     <!-- Case Studies Section (Blue Theme) -->
     <section id="case-studies" class="py-24 px-6 bg-blue-950 overflow-hidden relative text-white text-center">
-        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
             <div class="text-center mb-16 text-center"><h2 class="serif text-4xl mb-4 text-white text-center">Case Studies</h2><div class="w-20 h-1.5 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full text-center"></div><p class="text-slate-300 mt-6 max-w-2xl mx-auto text-base font-light text-center">Delivering strategic impact for industry titans.</p></div>
             <div class="relative px-2">
                 <div class="overflow-hidden"><div id="caseStudySlider" class="case-study-slider text-left"></div></div>
@@ -347,7 +349,7 @@
                 </div>
             </div>
             <div class="order-1 md:order-2">
-                <span class="text-orange-500 font-bold uppercase text-sm block mb-4">Founder's Spotlight</span><h2 class="serif text-5xl mb-8 text-blue-900 text-left">Rupsha Chakraborty</h2><div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed text-left"><p class="text-left">An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. She is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme</span>.</p><p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg text-sm md:text-base text-left">"I founded Stratedge to help common people understand architecture better and tell the stories of business owners to greater audiences."</p></div>
+                <span class="text-orange-500 font-bold uppercase text-sm block mb-4 text-left">Founder's Spotlight</span><h2 class="serif text-5xl mb-8 text-blue-900 text-left">Rupsha Chakraborty</h2><div class="space-y-6 text-slate-600 text-lg font-light leading-relaxed text-left"><p class="text-left">An architect from India, Rupsha excels in <span class="text-slate-900 font-semibold">architectural journalism</span>. She is an alumna of the <span class="text-slate-900 font-semibold">IIM Bangalore Women Startup Programme</span>.</p><p class="italic border-l-4 border-orange-500 pl-6 py-2 text-slate-800 bg-orange-50/50 rounded-r-lg text-sm md:text-base text-left">"I founded Stratedge to help common people understand architecture better."</p></div>
             </div>
         </div></div>
     </section>
@@ -355,25 +357,33 @@
     <!-- Become a Client Section -->
     <section id="get-started" class="py-24 px-6 bg-slate-50 border-b border-slate-100 text-left">
         <div class="max-w-7xl mx-auto"><div class="grid md:grid-cols-2 gap-16 text-left">
-            <div class="text-left"><h2 class="serif text-4xl md:text-5xl mb-8 text-blue-900 leading-tight text-left">Let's Redefine Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400 italic">Impact</span></h2><p class="text-slate-600 text-lg mb-10 leading-relaxed font-light text-left text-left">Ready to schedule your consultation?</p>
-                <div class="space-y-6 mb-12 text-left"><a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit text-left text-left"><div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 transition-colors text-left text-left text-left"><i class="fas fa-envelope text-left"></i></div><span class="font-medium text-sm md:text-base truncate text-left text-left">info.stratedgecommunications@gmail.com</span></a><div class="flex items-center text-slate-700 text-left"><div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 text-left text-left text-left"><i class="fas fa-phone-alt"></i></div><span class="font-medium text-sm md:text-base text-left text-left">+91-9123872596</span></div></div>
+            <div class="text-left text-left"><h2 class="serif text-4xl md:text-5xl mb-8 text-blue-900 leading-tight text-left">Let's Redefine Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400 italic">Impact</span></h2><p class="text-slate-600 text-lg mb-10 leading-relaxed font-light text-left text-left text-left">Ready to schedule your consultation?</p>
+                <div class="space-y-6 mb-12 text-left text-left"><a href="mailto:info.stratedgecommunications@gmail.com" class="flex items-center text-slate-700 hover:text-orange-500 transition-all group w-fit text-left text-left text-left"><div class="w-10 h-10 bg-orange-50 group-hover:bg-orange-100 rounded-full flex items-center justify-center mr-4 text-orange-500 transition-colors text-left text-left text-left text-left text-left"><i class="fas fa-envelope text-left text-left"></i></div><span class="font-medium text-sm md:text-base truncate text-left text-left text-left text-left">info.stratedgecommunications@gmail.com</span></a><div class="flex items-center text-slate-700 text-left text-left text-left"><div class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-4 text-orange-500 text-left text-left text-left text-left text-left"><i class="fas fa-phone-alt text-left text-left text-left text-left"></i></div><span class="font-medium text-sm md:text-base text-left text-left text-left text-left">+91-9123872596</span></div></div>
             </div>
             <div class="bg-blue-50/50 p-8 md:p-12 rounded-[2.5rem] border border-blue-100 shadow-sm text-left">
                 <div class="flex justify-between items-start mb-8 text-left text-left"><h3 class="serif text-3xl text-blue-900 text-left">Become a Client</h3><p class="text-[9px] font-bold text-slate-400 mt-2 uppercase text-left"><span class="text-red-500">*</span> Required</p></div>
                 <form id="contactForm" class="space-y-6 text-left">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
-                        <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Must be 10 digits</div></div>
+                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left">Full Name <span class="text-red-500">*</span></label><input type="text" id="formName" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></div>
+                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left">Phone <span class="text-red-500">*</span></label><input type="tel" id="formPhone" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"><div id="phoneError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Must be 10 digits</div></div>
                     </div>
-                    <div class="text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left">Invalid format (@ and .)</div></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left">Sector <span class="text-red-500">*</span></label><select id="formSector" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left"><option value="" disabled selected>Select Sector</option><option>Architect</option><option>Real Estate Developer</option><option>Civil Engineer</option><option>Interior Designer</option></select></div>
-                        <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left">Service <span class="text-red-500">*</span></label><select id="formService" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left"><option value="" disabled selected>Select Service</option><option>Brand Strategy</option><option>Digital Marketing</option><option>Consulting</option></select></div>
+                    <div class="text-left text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left">Email <span class="text-red-500">*</span></label><input type="email" id="formEmail" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none text-sm text-left text-left text-left"><div id="emailError" class="hidden text-red-500 text-[10px] font-bold mt-1 text-left text-left text-left">Invalid format (@ and .)</div></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-left">
+                        <div class="text-left text-left text-left text-left text-left text-left text-left text-left">How did you find us? <span class="text-red-500">*</span></div>
+                        <div class="text-left text-left text-left text-left text-left text-left text-left text-left">
+                            <select id="formSource" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left">
+                                <option value="" disabled selected>Please select</option>
+                                <option>Instagram</option>
+                                <option>LinkedIn</option>
+                                <option>Google / Search Engine</option>
+                                <option>Word of Mouth</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left">How did you find us? <span class="text-red-500">*</span></label><select id="formSource" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white text-sm text-left"><option value="" disabled selected>Please select</option><option>Instagram</option><option>LinkedIn</option><option>Google / Search Engine</option><option>Word of Mouth</option><option>Other</option></select></div>
-                    <div class="text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left">How can we help? <span class="text-red-500">*</span></label><textarea id="projectDesc" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left"></textarea></div>
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 transition shadow-xl text-center">Submit Request</button>
-                    <div id="formNotification" class="hidden mt-4 text-left"></div>
+                    <div class="text-left text-left text-left text-left text-left text-left text-left text-left text-left"><label class="block text-[10px] font-bold uppercase text-blue-800 mb-2 text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left">How can we help? <span class="text-red-500">*</span></label><textarea id="projectDesc" required rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-orange-500/20 outline-none transition text-sm text-left text-left text-left text-left text-left text-left text-left text-left text-left text-left"></textarea></div>
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold hover:from-orange-600 transition shadow-xl text-center text-center text-center text-center">Submit Request</button>
+                    <div id="formNotification" class="hidden mt-4 text-left text-left text-left text-left text-left text-left"></div>
                 </form>
             </div>
         </div></div>
@@ -384,10 +394,10 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 text-left text-xs md:text-sm text-white">
                 
-                <!-- 1. Branding (Expanded Width) -->
+                <!-- 1. Branding (Expanded Column) -->
                 <div class="lg:col-span-3 flex flex-col text-left">
                     <div class="flex items-center space-x-3 mb-6 text-left">
-                        <div class="bg-white p-1 rounded shadow-sm text-left"><img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-8 w-auto"></div>
+                        <div class="bg-white p-1 rounded shadow-sm text-left text-left text-left"><img src="https://lh3.googleusercontent.com/d/1F5P3GG0UhF5b91kWYRguQnxNSaRUjEms" alt="Stratedge Logo" class="h-8 w-auto"></div>
                         <span class="font-bold text-xl uppercase">Stratedge</span>
                     </div>
                     <p class="text-xs text-slate-400 font-light text-left leading-relaxed">Stratedge Communications Pvt. Ltd. — Visionary brand strategy for the built environment through high-impact storytelling.</p>
@@ -444,7 +454,6 @@
 
             </div>
             
-            <!-- Copyright & Hidden Admin Portal -->
             <div class="mt-20 pt-8 border-t border-white/10 flex justify-center items-center gap-2 text-[9px] text-slate-500 uppercase tracking-widest text-center">
                 <span>&copy; 2026 Stratedge Communications Pvt. Ltd. All rights reserved.</span>
                 <button onclick="openAdminModal()" class="hover:text-amber-400 transition ml-2" title="Admin Login"><i class="fas fa-lock"></i></button>
@@ -458,8 +467,7 @@
         import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        // ACTION: Update with your real Firebase credentials
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        c// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAijgNF4K0ctHFuFLk_QNhWAo5x9I9v5LI",
   authDomain: "stratedge-website.firebaseapp.com",
@@ -470,120 +478,54 @@ const firebaseConfig = {
   appId: "1:977499109777:web:98f877adc00cf5fff48230",
   measurementId: "G-EGVYBJ3F5G"
 };
+        const app = initializeApp(firebaseConfig), db = getFirestore(app), auth = getAuth(app);
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const auth = getAuth(app);
-
-        // Standard Client Form Submission
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             let isValid = true;
-            const phoneInput = document.getElementById('formPhone'), phoneError = document.getElementById('phoneError');
-            const phoneDigits = phoneInput.value.replace(/\D/g, ''); 
-            if (phoneDigits.length !== 10) { phoneError.classList.remove('hidden'); isValid = false; } 
-            else { phoneError.classList.add('hidden'); }
-            const emailInput = document.getElementById('formEmail'), emailValue = emailInput.value.trim();
-            if (!emailValue.includes('@') || !emailValue.includes('.')) { document.getElementById('emailError').classList.remove('hidden'); isValid = false; } 
+            const phoneVal = document.getElementById('formPhone').value.replace(/\D/g, ''); 
+            if (phoneVal.length !== 10) { document.getElementById('phoneError').classList.remove('hidden'); isValid = false; } 
+            else { document.getElementById('phoneError').classList.add('hidden'); }
+            const emailVal = document.getElementById('formEmail').value.trim();
+            if (!emailVal.includes('@') || !emailVal.includes('.')) { document.getElementById('emailError').classList.remove('hidden'); isValid = false; } 
             else { document.getElementById('emailError').classList.add('hidden'); }
             if (!isValid) return;
 
-            const btn = document.getElementById('submitBtn'), old = btn.innerHTML;
+            const btn = document.getElementById('submitBtn'), oldText = btn.innerHTML;
             btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             try {
-                await addDoc(collection(db, "leads"), { name: document.getElementById('formName').value, phone: phoneDigits, email: emailValue, sector: document.getElementById('formSector').value, service: document.getElementById('formService').value, source: document.getElementById('formSource').value, message: document.getElementById('projectDesc').value, timestamp: new Date().toISOString() });
-                showNotification('success', 'Request submitted successfully! Our team will reach out to you soon.'); e.target.reset();
-            } catch (err) { showNotification('error', 'Submission failed.'); } finally { btn.disabled = false; btn.innerHTML = old; }
+                await addDoc(collection(db, "leads"), { name: document.getElementById('formName').value, phone: phoneVal, email: emailVal, source: document.getElementById('formSource').value, message: document.getElementById('projectDesc').value, timestamp: new Date().toISOString() });
+                showNotification('success', 'Request submitted successfully!'); e.target.reset();
+            } catch (err) { showNotification('error', 'Submission failed.'); } finally { btn.disabled = false; btn.innerHTML = oldText; }
         });
+
+        window.downloadLeads = async () => {
+            const user = document.getElementById('adminUser').value, pass = document.getElementById('adminPass').value, btn = document.getElementById('adminDownloadBtn');
+            if (user !== 'admin' || pass !== 'admin') { document.getElementById('adminError').classList.remove('hidden'); return; }
+            document.getElementById('adminError').classList.add('hidden'); btn.disabled = true; btn.innerHTML = 'Downloading...';
+            try {
+                await signInWithEmailAndPassword(auth, "admin@stratedge.com", "admin123456");
+                const qs = await getDocs(collection(db, "leads")), leads = [];
+                qs.forEach((doc) => { leads.push(doc.data()); });
+                if (leads.length === 0) { alert("No leads!"); await signOut(auth); btn.disabled = false; return; }
+                const h = ["timestamp", "name", "email", "phone", "message"];
+                const csv = [h.join(','), ...leads.map(l => h.map(f => `"${(l[f]||'').toString().replace(/"/g, '""')}"`).join(','))].join('\n');
+                const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); link.download = 'leads.csv'; link.click();
+                await signOut(auth); closeAdminModal();
+            } catch (e) { document.getElementById('adminError').classList.remove('hidden'); } finally { btn.disabled = false; btn.innerHTML = 'Download CSV'; }
+        };
 
         function showNotification(t, m) {
             const n = document.getElementById('formNotification');
             n.textContent = m; n.className = `p-4 rounded-xl text-sm font-bold mt-4 ${t === 'success' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`;
             n.classList.remove('hidden'); setTimeout(() => n.classList.add('hidden'), 5000);
         }
-
-        // Admin Download Logic (Attached to window for inline onclick)
-        window.downloadLeads = async () => {
-            const user = document.getElementById('adminUser').value;
-            const pass = document.getElementById('adminPass').value;
-            const err = document.getElementById('adminError');
-            const btn = document.getElementById('adminDownloadBtn');
-
-            if (user !== 'admin' || pass !== 'admin') {
-                err.classList.remove('hidden');
-                return;
-            }
-            err.classList.add('hidden');
-            
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
-
-            try {
-                // Securely authenticate with Firebase using a mapped account
-                await signInWithEmailAndPassword(auth, "admin@stratedge.com", "admin123456");
-
-                const querySnapshot = await getDocs(collection(db, "leads"));
-                const leads = [];
-                querySnapshot.forEach((doc) => { leads.push({ id: doc.id, ...doc.data() }); });
-
-                if (leads.length === 0) {
-                    alert("No leads found in the database.");
-                    await signOut(auth); // Log out safely
-                    btn.disabled = false; btn.innerHTML = originalText;
-                    return;
-                }
-
-                // Convert to CSV
-                const headers = ["timestamp", "name", "email", "phone", "sector", "service", "source", "message"];
-                const csvRows = [];
-                csvRows.push(headers.join(','));
-
-                leads.forEach(lead => {
-                    const row = headers.map(header => {
-                        let cell = lead[header] === undefined || lead[header] === null ? '' : lead[header].toString();
-                        cell = cell.replace(/"/g, '""');
-                        if (cell.search(/("|,|\n)/g) >= 0) cell = `"${cell}"`;
-                        return cell;
-                    });
-                    csvRows.push(row.join(','));
-                });
-
-                const csvString = csvRows.join('\n');
-                const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement("a");
-                link.setAttribute("href", url);
-                link.setAttribute("download", `stratedge_leads_${new Date().toISOString().split('T')[0]}.csv`);
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
-                await signOut(auth); // Log out safely after export
-                closeAdminModal();
-            } catch (error) {
-                console.error("Error fetching leads:", error);
-                err.textContent = "Auth Error: Ensure Firebase Authentication is setup.";
-                err.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-            }
-        };
     </script>
 
     <script>
-        // UI Helpers
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
-        
-        // Admin Modal Controls
         window.openAdminModal = () => { document.getElementById('adminModal').classList.add('modal-active'); };
-        window.closeAdminModal = () => { 
-            document.getElementById('adminModal').classList.remove('modal-active'); 
-            document.getElementById('adminError').classList.add('hidden');
-            document.getElementById('adminUser').value = '';
-            document.getElementById('adminPass').value = '';
-        };
+        window.closeAdminModal = () => { document.getElementById('adminModal').classList.remove('modal-active'); };
 
         const caseStudies = [
             { id: 1, icon: 'fa-building-columns', company: 'Urban Dynamics', title: 'Identity Redesign' },
@@ -595,7 +537,7 @@ const firebaseConfig = {
             { id: 7, icon: 'fa-vector-square', company: 'Design Hub', title: 'Recruitment' }
         ];
 
-        let currentCaseIdx = 0;
+        let curIdx = 0;
         function initCaseStudies() {
             const slider = document.getElementById('caseStudySlider');
             slider.innerHTML = caseStudies.map(cs => `
@@ -612,22 +554,20 @@ const firebaseConfig = {
 
         function slideCases(dir) {
             const step = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-            if (dir === 'next') { currentCaseIdx++; if (currentCaseIdx > caseStudies.length - step) currentCaseIdx = 0; }
-            else if (dir === 'prev') { currentCaseIdx--; if (currentCaseIdx < 0) currentCaseIdx = caseStudies.length - step; }
-            const stepPercent = 100 / step;
-            document.getElementById('caseStudySlider').style.transform = `translateX(-${currentCaseIdx * stepPercent}%)`;
+            if (dir === 'next') { curIdx++; if (curIdx > caseStudies.length - step) curIdx = 0; }
+            else if (dir === 'prev') { curIdx--; if (curIdx < 0) curIdx = caseStudies.length - step; }
+            document.getElementById('caseStudySlider').style.transform = `translateX(-${curIdx * (100 / step)}%)`;
             updateDots();
         }
 
         function updateDots() {
-            const step = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
-            const totalDots = caseStudies.length - step + 1;
-            document.getElementById('caseDots').innerHTML = Array.from({length: totalDots}).map((_, i) => `<button onclick="currentCaseIdx=${i}; slideCases('stay');" class="dot w-2 h-2 rounded-full bg-slate-700 transition-all ${i === currentCaseIdx ? 'active' : ''}"></button>`).join('');
+            const step = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1), totalDots = caseStudies.length - step + 1;
+            document.getElementById('caseDots').innerHTML = Array.from({length: totalDots}).map((_, i) => `<button onclick="curIdx=${i}; slideCases('stay');" class="dot w-2 h-2 rounded-full bg-slate-700 transition-all ${i === curIdx ? 'active' : ''}"></button>`).join('');
         }
 
         function openCaseModal(id) {
             const cs = caseStudies.find(c => c.id === id), content = document.getElementById('caseDetailContent');
-            content.innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left">Strategic alignment with market trends resulted in measurable business growth and higher brand equity within the premium built environment sector.</p>`;
+            content.innerHTML = `<div class="flex items-center gap-6 mb-8 text-left"><div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 shrink-0"><i class="fa-solid ${cs.icon} text-2xl"></i></div><div><h3 class="serif text-2xl md:text-3xl text-blue-900 text-left">${cs.company}</h3><p class="text-orange-500 font-bold text-xs uppercase tracking-widest mt-1 text-left">${cs.title}</p></div></div><p class="text-slate-600 leading-relaxed text-base text-left">Strategic alignment with market trends resulted in measurable business growth.</p>`;
             document.getElementById('caseModal').classList.add('modal-active');
         }
 
@@ -635,11 +575,11 @@ const firebaseConfig = {
         
         document.addEventListener('DOMContentLoaded', () => {
             initCaseStudies();
-            const heroSlider = document.getElementById('hero-slider');
-            setInterval(() => { heroSlider.style.transition = 'transform 1s ease-in-out'; heroSlider.style.transform = 'translateX(-100%)'; setTimeout(() => { heroSlider.style.transition = 'none'; heroSlider.appendChild(heroSlider.firstElementChild); heroSlider.style.transform = 'translateX(0)'; }, 1000); }, 7000);
+            const hs = document.getElementById('hero-slider');
+            setInterval(() => { hs.style.transition = 'transform 1s ease-in-out'; hs.style.transform = 'translateX(-100%)'; setTimeout(() => { hs.style.transition = 'none'; hs.appendChild(hs.firstElementChild); hs.style.transform = 'translateX(0)'; }, 1000); }, 7000);
             setInterval(() => slideCases('next'), 3500);
         });
-        window.addEventListener('resize', () => { currentCaseIdx = 0; updateDots(); slideCases('stay'); });
+        window.addEventListener('resize', () => { curIdx = 0; updateDots(); slideCases('stay'); });
     </script>
 </body>
 </html>
