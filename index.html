@@ -138,30 +138,53 @@
             background: #f97316; /* orange-500 */
             transform: scale(1.05);
         }
+        /* --- Splash Screen Styles --- */
         body {
-            overflow: hidden; /* Prevents scrolling while preloader is active */
+            overflow: hidden; /* Lock scroll while loading */
         }
-        /* Preloader Styles */
+        
         #preloader {
             position: fixed;
             inset: 0;
-            background: #ffffff;
+            /* Moving Gradient Background */
+            background: linear-gradient(-45deg, #ffffff, #f1f5f9, #eff6ff, #fff7ed);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
             z-index: 9999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s ease-out, visibility 0.8s;
+            transition: opacity 1s ease-out, visibility 1s;
         }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
         #preloader.hidden {
             opacity: 0;
             visibility: hidden;
         }
+        
         .splash-logo {
             width: 80vw;
             max-width: 800px;
             height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.1));
+            transform: scale(0.9);
+            animation: logoPulse 5s ease-in-out infinite;
         }
+        
+        @keyframes logoPulse {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            50% { transform: scale(0.95); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.8; }
+        }
+        
         @media (max-width: 640px) {
             .splash-logo { width: 90vw; }
         }
