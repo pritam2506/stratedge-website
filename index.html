@@ -170,13 +170,6 @@
             <video autoplay loop muted playsinline class="w-48 md:w-64 h-auto object-contain">
                 <source src="Stratedge Logo GIF.mp4" type="video/mp4">
             </video>
-            <!-- Elegant Loading Animation -->
-            <div class="mt-12 flex space-x-3">
-                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            </div>
-            <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400">Loading Experience</p>
         </div>
     </div>
         <!-- Scroll Navigation -->
@@ -715,7 +708,7 @@
                     preloader.classList.add('hidden');
                     document.body.style.overflow = 'auto'; // Re-enables website scrolling
                 }
-            }, 5000); // 5000ms = 5 Seconds
+            }, 10000); // 5000ms = 5 Seconds
         });
     </script>
 </body>
