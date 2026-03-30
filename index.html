@@ -138,11 +138,48 @@
             background: #f97316; /* orange-500 */
             transform: scale(1.05);
         }
+
+                body {
+            overflow: hidden; /* Prevents scrolling while preloader is active */
+        }
+        
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out, visibility 0.8s;
+        }
+        
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 text-left">
 
-    <!-- Scroll Navigation -->
+    <!-- Preloader Splash Screen -->
+    <div id="preloader">
+        <div class="flex flex-col items-center max-w-xs md:max-w-md text-center">
+            <!-- Using the exact Logo Video URL -->
+            <video autoplay loop muted playsinline class="w-48 md:w-64 h-auto object-contain">
+                <source src="https://lh3.googleusercontent.com/d/1X-v97uA1p49-R-5S30_l0e5zU8LpY5xJ" type="video/mp4">
+            </video>
+            <!-- Elegant Loading Animation -->
+            <div class="mt-12 flex space-x-3">
+                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-1.5 h-1.5 bg-blue-900 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+            <p class="mt-4 text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400">Loading Experience</p>
+        </div>
+    </div>
+        <!-- Scroll Navigation -->
     <div id="scrollNav">
         <button id="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-btn">
             <i class="fas fa-chevron-up"></i> <span>Top</span>
@@ -671,6 +708,14 @@
             const hs = document.getElementById('hero-slider');
             setInterval(() => { hs.style.transition = 'transform 1s ease-in-out'; hs.style.transform = 'translateX(-100%)'; setTimeout(() => { hs.style.transition = 'none'; hs.appendChild(hs.firstElementChild); hs.style.transform = 'translateX(0)'; }, 1000); }, 7000);
             setInterval(() => slideCases('next'), 3500);
+            // Preloader logic: Hide after 5 seconds
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('hidden');
+                    document.body.style.overflow = 'auto'; // Re-enables website scrolling
+                }
+            }, 5000); // 5000ms = 5 Seconds
         });
     </script>
 </body>
