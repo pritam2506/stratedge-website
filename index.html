@@ -138,11 +138,10 @@
             background: #f97316; /* orange-500 */
             transform: scale(1.05);
         }
-
-                body {
+        body {
             overflow: hidden; /* Prevents scrolling while preloader is active */
         }
-        
+        /* Preloader Styles */
         #preloader {
             position: fixed;
             inset: 0;
@@ -154,24 +153,30 @@
             justify-content: center;
             transition: opacity 0.8s ease-out, visibility 0.8s;
         }
-        
         #preloader.hidden {
             opacity: 0;
             visibility: hidden;
+        }
+        .splash-logo {
+            width: 80vw;
+            max-width: 800px;
+            height: auto;
+        }
+        @media (max-width: 640px) {
+            .splash-logo { width: 90vw; }
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 text-left">
 
     <!-- Preloader Splash Screen -->
-    <div id="preloader">
-        <div class="flex flex-col items-center max-w-xs md:max-w-md text-center">
-            <!-- Using the exact Logo Video URL -->
-            <video autoplay loop muted playsinline class="w-48 md:w-64 h-auto object-contain">
-                <source src="Stratedge Logo GIF.mp4" type="video/mp4">
-            </video>
-        </div>
+   <div id="preloader">
+    <div class="flex flex-col items-center w-full">
+        <video autoplay loop muted playsinline class="splash-logo">
+            <source src="Stratedge Logo GIF.mp4" type="video/mp4">
+        </video>
     </div>
+</div>
         <!-- Scroll Navigation -->
     <div id="scrollNav">
         <button id="scrollToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-btn">
