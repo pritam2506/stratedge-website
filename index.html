@@ -142,34 +142,68 @@
         body {
             overflow: hidden; /* Lock scroll while loading */
         }
+        /* --- New Colourful Animated Splash Screen Styles --- */
         #preloader {
-            position: fixed; inset: 0; background: #ffffff; z-index: 9999;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            overflow: hidden; transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
         }
-        .preloader-bg { position: absolute; inset: 0; z-index: -1; filter: blur(80px); opacity: 0.7; }
+        
+        /* Animated Blobs for Dynamic Background */
+        .preloader-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.7;
+        }
+        
         .blob {
-            position: absolute; width: 60vw; height: 60vw; border-radius: 50%;
-            mix-blend-mode: multiply; animation: moveBlobs 20s infinite alternate ease-in-out;
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+            animation: moveBlobs 20s infinite alternate ease-in-out;
         }
+        
         .blob-1 { background: #f97316; top: -10%; left: -10%; animation-duration: 15s; }
         .blob-2 { background: #1e3a8a; bottom: -10%; right: -10%; animation-duration: 18s; animation-delay: -2s; }
         .blob-3 { background: #fbbf24; top: 20%; right: 10%; animation-duration: 12s; animation-delay: -5s; }
         .blob-4 { background: #4f46e5; bottom: 10%; left: 10%; animation-duration: 22s; animation-delay: -8s; }
+        
         @keyframes moveBlobs {
             0% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30%, 20%) scale(1.2); }
             66% { transform: translate(-10%, 40%) scale(0.8); }
             100% { transform: translate(20%, -10%) scale(1.1); }
         }
-        .splash-logo {
-            width: 75vw; max-width: 700px; height: auto; z-index: 10;
-            animation: logoFloat 4s ease-in-out infinite;
+        
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
-        @keyframes logoFloat {
-            0% { transform: scale(0.9) translateY(0); }
-            50% { transform: scale(0.93) translateY(-15px); }
-            100% { transform: scale(0.9) translateY(0); }
+        
+        .splash-logo {
+            width: 75vw;
+            max-width: 700px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 35px rgba(0,0,0,0.15));
+            /* Animation removed to stop shaking */
+            z-index: 10;
+        }
+        
+        @media (max-width: 640px) {
+            .splash-logo { width: 85vw; }
+            .blob { width: 100vw; height: 100vw; }
         }
     </style>
 </head>
@@ -183,9 +217,11 @@
             <div class="blob blob-3"></div>
             <div class="blob blob-4"></div>
         </div>
-        <video autoplay loop muted playsinline class="splash-logo">
-            <source src="Stratedge Logo GIF.mp4" type="video/mp4">
-        </video>
+        <div class="flex flex-col items-center w-full">
+            <video autoplay loop muted playsinline class="splash-logo">
+                <source src="Stratedge Logo GIF.mp4" type="video/mp4">
+            </video>
+        </div>
     </div>
         <!-- Scroll Navigation -->
     <div id="scrollNav">
@@ -723,7 +759,7 @@
                     preloader.classList.add('hidden');
                     document.body.style.overflow = 'auto'; // Re-enables website scrolling
                 }
-            }, 10000); // 5000ms = 5 Seconds
+            }, 7000); // 5000ms = 5 Seconds
         });
     </script>
 </body>
